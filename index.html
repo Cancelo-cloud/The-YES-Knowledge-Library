@@ -451,6 +451,7 @@ h1{
         </div>
         <div class="detail-field"><label>Title</label><input id="editTitle"></div>
         <div class="detail-field"><label>Author / source</label><input id="editAuthor"></div>
+        <div class="detail-field"><label>Genre</label><input id="editGenre"></div>
         <div class="detail-field"><label>Short note</label><textarea class="small" id="editNote"></textarea></div>
         <div class="detail-field"><label>Detailed summary</label><textarea id="editSummary"></textarea></div>
         <div class="detail-field"><label>Key ideas — one per line</label><textarea id="editKeyIdeas"></textarea></div>
@@ -484,37 +485,277 @@ short note plus a reminder that the full summary can still be added.
 const shelves = [
   {
     title:"Books",
-    tagline:"Long-form reading that upgrades how you think.",
+    tagline:"Long-form reading that deepens judgement, character, imagination, and self-knowledge.",
     img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=700&q=80&fit=crop",
-    why:"Books are the only technology that lets you borrow someone else's decades of experience in a few hours. One good book changes how you see everything after it.",
-    tip:"Finish fewer books — but re-read the best ones. A book you re-read twice is worth ten books you skimmed once.",
-    listHead:"Books — from bestsellers to most recommended",
-    badge:"bestseller",
+    why:"A strong book can lend you another person’s lifetime of thought. These selections are arranged in Sam’s preferred order and chosen for the ideas, characters, and questions worth returning to.",
+    tip:"Do not rush to finish everything. Read slowly enough for one book to alter your behaviour, vocabulary, or view of life.",
+    listHead:"Sam’s selected library — open any title for the full narrative",
     items:[
-      {badge:"bestseller", title:"Atomic Habits", author:"James Clear",
-      note:"The definitive guide to building good habits and breaking bad ones. Most recommended by coaches, athletes, and founders worldwide.",
-      summary:"Atomic Habits argues that meaningful change rarely comes from one dramatic decision. It comes from very small actions repeated until they become part of your identity. A habit is not merely something you do; over time, it becomes evidence of the kind of person you believe you are.\n\nClear separates goals from systems. Goals tell you where you want to go, but systems determine whether you move there consistently. The practical task is therefore to redesign the cues, friction, rewards, and environment surrounding a behaviour.",
-      keyIdeas:[
-        "Improve by 1% repeatedly. Small gains become significant when allowed to compound.",
-        "Build identity-based habits: decide who you want to become, then collect evidence through action.",
-        "Make good habits obvious, attractive, easy, and satisfying.",
-        "Make harmful habits invisible, unattractive, difficult, and unsatisfying."
-      ],
-      application:"Choose one behaviour that takes less than two minutes and attach it to something you already do. For example: after placing your phone on charge, read one page; after changing out of work clothes, put on training clothes.",
-      quote:"You do not rise to the level of your goals. You fall to the level of your systems.",
-      reflection:"Which repeated action is currently casting votes for the person you want to become — and which one is casting votes against that identity?"
-    },
-      {badge:"bestseller", title:"Thinking, Fast and Slow", author:"Daniel Kahneman", note:"Nobel Prize-winning psychology of how your brain actually makes decisions. Foundational."},
-      {badge:"bestseller", title:"The Psychology of Money", author:"Morgan Housel", note:"19 short stories on how people think about money — and why behaviour matters more than knowledge."},
-      {badge:"recommended", title:"Man's Search for Meaning", author:"Viktor Frankl", note:"Written in a Nazi concentration camp. The most powerful argument ever made for finding purpose under pressure."},
-      {badge:"recommended", title:"The Almanack of Naval Ravikant", author:"Eric Jorgenson", note:"How to build wealth and find happiness — distilled from Naval's best ideas. Free online."},
-      {badge:"recommended", title:"Deep Work", author:"Cal Newport", note:"The ability to focus without distraction is the superpower of the 21st century. Newport shows you how."},
-      {badge:"recommended", title:"The Obstacle is the Way", author:"Ryan Holiday", note:"Stoic philosophy turned into a practical guide for turning adversity into advantage."},
-      {badge:"bestseller", title:"Rich Dad Poor Dad", author:"Robert Kiyosaki", note:"The book that first taught a generation to think about assets, liabilities, and financial education."},
-      {badge:"recommended", title:"Mindset", author:"Carol Dweck", note:"Fixed vs growth mindset — the research that changed how schools, coaches, and companies think about talent."},
-      {badge:"recommended", title:"The 48 Laws of Power", author:"Robert Greene", note:"How power actually works in the world. Read it to understand it — not necessarily to practise it."},
-      {badge:"bestseller", title:"How to Win Friends and Influence People", author:"Dale Carnegie", note:"Still the best book ever written on human relationships. Published in 1936. Nothing has beaten it."},
-      {badge:"recommended", title:"Sapiens", author:"Yuval Noah Harari", note:"A sweeping history of humankind. Changes how you think about money, culture, religion, and progress."},
+      {badge:"bestseller", title:"The Power of Now", author:"Eckhart Tolle", genre:"Spirituality / Mindfulness",
+        note:"A practical invitation to stop living almost entirely in memory and anticipation.",
+        summary:`The Power of Now argues that much of human suffering comes from living psychologically outside the present moment. The mind continually returns to what happened, what should have happened, or what might happen next. Tolle does not suggest abandoning planning or memory. He asks readers to notice when useful thought becomes compulsive thought and when identity becomes entangled with the mind’s constant commentary.
+
+The book’s central practice is presence: observing thoughts, emotions, and bodily sensations without immediately becoming them. This creates distance between awareness and mental noise. Tolle describes the “pain-body” as accumulated emotional pain that can be triggered and then mistaken for one’s whole identity. By recognising it, a person can respond consciously instead of feeding it.
+
+For a young professional, the book is useful because it addresses anxiety, overthinking, resentment, and the habit of postponing peace until conditions improve. Its deepest message is that life is never encountered tomorrow. It is always encountered now, in the quality of attention brought to the present moment.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The 7 Habits of Highly Effective People", author:"Stephen R. Covey", genre:"Personal Development / Leadership",
+        note:"A principle-centred framework for becoming proactive, disciplined, and trustworthy.",
+        summary:`Stephen Covey’s classic is not a collection of quick productivity tricks. It is a framework for developing character and effectiveness from the inside out. Covey begins with personal responsibility: proactive people focus on what they can influence instead of surrendering their energy to circumstances, moods, or other people’s behaviour.
+
+The first three habits concern private victory. They ask readers to take ownership, define the end before beginning, and organise life around what matters most. The next three concern public victory: thinking in terms of mutual benefit, listening deeply before trying to be understood, and combining different strengths through synergy. The final habit, “sharpen the saw,” is about renewal across body, mind, relationships, and inner life.
+
+The book is especially valuable for interns because it connects daily behaviour to long-term identity. It shows that effectiveness is not being busy or impressive. It is aligning choices with principles, priorities, and relationships. Covey’s work helps readers become people others can trust: clear in purpose, responsible in action, and capable of working constructively with difference.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The War of Art", author:"Steven Pressfield", genre:"Creativity / Discipline",
+        note:"A fierce examination of the inner resistance that prevents meaningful work.",
+        summary:`The War of Art gives a name to the force that appears whenever a person tries to begin meaningful work: Resistance. Resistance takes many forms—procrastination, distraction, perfectionism, self-doubt, drama, endless preparation, and the belief that one must first feel inspired. Pressfield argues that Resistance is strongest around the work that matters most.
+
+The book contrasts the amateur and the professional. The amateur waits for mood, approval, confidence, and ideal conditions. The professional shows up according to a standard. This does not mean becoming cold or joyless. It means treating one’s calling with enough respect to work even when enthusiasm is absent.
+
+For interns, the book is powerful because early careers are full of uncertainty. Many people postpone difficult applications, writing, exercise, or creative work because they interpret discomfort as a sign to stop. Pressfield reframes discomfort as evidence that the work may be important. The practical lesson is simple but demanding: sit down, begin, and keep returning. Courage often appears after the work has started, not before.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The Almanack of Naval Ravikant", author:"Eric Jorgenson / Naval Ravikant", genre:"Wealth / Philosophy",
+        note:"A collection of Naval Ravikant’s ideas on wealth, judgement, happiness, and freedom.",
+        summary:`The Almanack of Naval Ravikant gathers Naval’s most influential ideas into a practical philosophy of wealth and happiness. Naval separates wealth from status and money. Wealth consists of assets that continue producing value without requiring every hour of your labour. Status is a social ranking game, while money is merely a way of transferring value.
+
+The book emphasises specific knowledge—skills that emerge from genuine curiosity, unusual experience, and natural inclination. Naval argues that modern leverage comes through code, media, capital, and teams. These allow one person’s judgement and effort to reach far beyond the limits of time. Yet the pursuit of wealth is balanced by a second question: how does one become internally free?
+
+Naval’s thoughts on happiness focus on reducing unnecessary desire, observing the mind, valuing health, and choosing long-term relationships and work. For young people, the book is useful because it rejects both passive careerism and shallow hustle culture. It encourages readers to build rare skills, own equity, think independently, and create a life in which freedom matters as much as income.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"To Kill a Mockingbird", author:"Harper Lee", genre:"Literary Fiction / Social Justice",
+        note:"A child’s view of courage, prejudice, injustice, and moral responsibility.",
+        summary:`To Kill a Mockingbird is narrated by Scout Finch, a young girl growing up in the American South during the 1930s. Her father, Atticus Finch, is appointed to defend Tom Robinson, a Black man falsely accused of assaulting a white woman. Through Scout’s eyes, the novel explores how prejudice becomes ordinary, how communities protect comforting lies, and what moral courage looks like when justice is unpopular.
+
+The book’s power comes from its contrast between childhood innocence and adult hypocrisy. Scout and her brother Jem gradually discover that intelligence and respectability do not automatically produce fairness. They also learn that courage is not loudness or domination. It is doing what is right while knowing the cost may be high.
+
+For young readers, the novel raises enduring questions about empathy, reputation, evidence, and social pressure. Atticus teaches Scout to understand people by imaginatively entering their point of view, but the novel also shows that empathy must be joined to action. Seeing injustice clearly matters; standing against it matters more.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"Lead the Field", author:"Earl Nightingale", genre:"Success Philosophy / Personal Development",
+        note:"A foundational audio programme about attitude, purpose, value, and personal responsibility.",
+        summary:`Lead the Field is a collection of Earl Nightingale’s lessons on achievement, attitude, purpose, and service. Its central claim is that people gradually become what they think about, especially when thought is joined to disciplined action. Nightingale urges listeners to stop drifting and to choose a definite direction for their lives.
+
+A major theme is value creation. Income and opportunity tend to follow the value a person contributes, not merely the effort they feel they have spent. Nightingale therefore encourages continuous learning, clear goals, constructive self-talk, and the habit of doing more than is expected. He also treats attitude as a form of leadership: the way one enters a room, responds to problems, and treats other people influences results long before formal authority arrives.
+
+For interns, the programme is valuable because it challenges helplessness without denying difficulty. It asks: What can you learn? What can you improve? What useful service can you provide? Its language reflects its era, but the core message remains relevant: choose a worthy direction, guard your thinking, and become increasingly valuable through daily practice.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Pride and Prejudice", author:"Jane Austen", genre:"Classic Romance / Social Satire",
+        note:"A witty study of judgement, pride, attraction, class, and self-correction.",
+        summary:`Pride and Prejudice follows Elizabeth Bennet, an intelligent and independent young woman, and Fitzwilliam Darcy, a wealthy man whose reserve initially appears to be arrogance. Their relationship develops through misunderstanding, wounded pride, social expectations, and gradual self-examination.
+
+Jane Austen uses romance to explore judgement. Elizabeth is perceptive, but her confidence in her own perception makes her vulnerable to prejudice. Darcy possesses integrity and loyalty, yet his pride and class assumptions make him dismissive. Both must confront uncomfortable truths about themselves before they can understand each other clearly.
+
+The novel is also a sharp social comedy. Marriage, inheritance, reputation, and economic security shape nearly every relationship. Austen exposes foolishness without losing sympathy for human weakness. For young readers, the book offers more than a love story. It demonstrates how intelligence can become overconfidence, how first impressions harden into narratives, and how genuine growth requires the humility to revise one’s opinion. Its enduring charm lies in watching two strong people become better without losing their individuality.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The Untethered Soul", author:"Michael A. Singer", genre:"Spirituality / Psychology",
+        note:"A guide to observing the inner voice rather than being controlled by it.",
+        summary:`The Untethered Soul begins with a simple observation: there is a voice inside the mind that comments on nearly everything. It judges, predicts, replays, worries, and creates arguments. Michael Singer asks the reader to notice that if you can hear this voice, then you are not identical to it. You are the awareness observing it.
+
+The book explores how people build inner walls around painful experiences and then organise life to avoid touching those wounds. This creates rigidity. Singer proposes a different path: allow sensations and emotions to move through without clinging, suppressing, or constructing identity around them. Freedom comes not from controlling every external event but from loosening one’s resistance to experience.
+
+For young professionals, the book is useful when criticism, anxiety, comparison, or uncertainty dominate attention. It does not encourage passivity. It encourages acting from clarity rather than from a frightened inner narrator. Its central practice is to relax, observe, and let go. The more a person releases the need to protect a fragile self-image, the more energy becomes available for work, relationships, and life.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The Intellectual Life", author:"A. G. Sertillanges", genre:"Philosophy / Study",
+        note:"A demanding and beautiful guide to building a life capable of serious thought.",
+        summary:`The Intellectual Life is a guide for anyone who wants to think, study, write, or create seriously. Sertillanges argues that intellectual work is not confined to a desk. It depends on the shape of one’s entire life: habits, friendships, health, silence, moral discipline, reading, and the ability to protect attention.
+
+The book treats vocation with seriousness. One does not need unlimited time or institutional status to begin. Even a few well-protected hours can produce meaningful work if they are approached consistently. Sertillanges warns against scattered reading, vanity, excessive ambition, and the desire to appear knowledgeable. The goal is not accumulation but integration—allowing truth to reorganise thought and character.
+
+For young readers, the book offers a counterweight to digital distraction. It insists that a mind becomes deep through concentration, patience, and faithful return. Rest, exercise, solitude, and conversation all support thinking when used wisely. Its deepest lesson is that serious intellectual work is a way of life. What you produce depends heavily on the kind of person and environment you deliberately build.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"Letters from a Stoic", author:"Lucius Annaeus Seneca", genre:"Stoic Philosophy",
+        note:"Practical letters on fear, time, friendship, wealth, death, and inner freedom.",
+        summary:`Letters from a Stoic collects Seneca’s correspondence with his friend Lucilius. Although written in ancient Rome, the letters feel remarkably direct. Seneca discusses anxiety, ambition, friendship, anger, grief, mortality, wealth, and the discipline required to live deliberately.
+
+Stoicism does not ask a person to become emotionless. It asks them to distinguish between what depends on their judgement and action, and what does not. Seneca repeatedly reminds Lucilius that fear often causes more suffering than events themselves. He urges preparation for hardship, simplicity in pleasure, and independence from public approval. Wealth is not automatically corrupting, but dependence on wealth is dangerous.
+
+The letters are especially useful for young people because they are brief enough to revisit and broad enough to accompany many seasons of life. Seneca’s tone is not that of a perfect sage. He often writes as someone still correcting himself. This makes the work humane. Its core message is that philosophy is not decoration. It should change how one uses time, handles adversity, treats others, and faces death.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Atlas Shrugged", author:"Ayn Rand", genre:"Philosophical Fiction / Political Fiction",
+        note:"A vast novel about creators, power, responsibility, and the morality of productive work.",
+        summary:`Atlas Shrugged imagines a society in which its most capable industrialists, inventors, and entrepreneurs begin disappearing. Dagny Taggart, a railroad executive, struggles to keep her company and the wider economy functioning while political leaders impose controls in the name of fairness. The novel gradually reveals that the missing creators have gone on strike against a system that demands their ability while condemning their independence.
+
+Ayn Rand uses the story to dramatise her philosophy of Objectivism: reason, individual rights, productive achievement, and rational self-interest. The novel celebrates competence and creation while attacking coercion, dependency, and moral systems that treat sacrifice as the highest virtue.
+
+The book is influential and controversial. Its characters often represent philosophical positions more than ordinary psychological complexity, and readers may disagree strongly with its politics. That is part of its value as a serious reading experience. For young professionals, it raises difficult questions: What do capable people owe society? When does cooperation become exploitation? What is the moral meaning of ambition? Even when resisted, the book forces the reader to clarify their own beliefs.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Lord of the Rings", author:"J. R. R. Tolkien", genre:"Epic Fantasy",
+        note:"An epic of courage, friendship, temptation, sacrifice, and hope against overwhelming darkness.",
+        summary:`The Lord of the Rings follows Frodo Baggins, a seemingly ordinary hobbit entrusted with destroying a ring of immense power. The ring cannot be safely used, even for good intentions, because it corrupts the person who attempts to control it. Frodo’s journey draws together hobbits, humans, elves, dwarves, and wizards against the growing power of Sauron.
+
+The story is grand in scale but intimate in moral focus. Great events depend on small acts of endurance, mercy, loyalty, and friendship. Sam’s devotion, Aragorn’s willingness to accept responsibility, Gandalf’s wisdom, and Frodo’s burden reveal different forms of courage. Tolkien also shows that victory is costly. Even when evil is defeated, experience leaves permanent marks.
+
+For young readers, the trilogy offers a powerful vision of responsibility. The task you are given may not match the person you believe yourself to be. You may feel underprepared. Yet character is revealed through carrying what must be carried. The books honour hope without pretending darkness is easy, and they insist that ordinary people can influence the fate of the world.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"A Little Princess", author:"Frances Hodgson Burnett", genre:"Children’s Classic / Literary Fiction",
+        note:"A story about dignity, imagination, generosity, and character under severe hardship.",
+        summary:`A Little Princess follows Sara Crewe, a wealthy and imaginative girl sent to a London boarding school. When her father dies and his fortune appears to be lost, Sara’s privileged position disappears overnight. The school’s headmistress turns her into an unpaid servant, forcing her to live in an attic and endure hunger, humiliation, and isolation.
+
+Sara’s strength lies not in denying suffering but in refusing to let cruelty determine her character. She uses imagination to preserve dignity and creates moments of kindness even when she has very little. Her belief that every girl can behave like a princess is not about status or luxury. It is about self-command, generosity, and how one treats people when no reward is expected.
+
+For young readers, the novel asks what remains when circumstances remove comfort, praise, and social advantage. Sara’s inner world becomes a form of resilience, but the story also values practical kindness from others. It shows that character is not proven when life is easy. It is revealed when one has every excuse to become bitter and chooses not to.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Jane Eyre", author:"Charlotte Brontë", genre:"Gothic Fiction / Bildungsroman",
+        note:"A fierce story of self-respect, moral independence, love, and the refusal to become smaller.",
+        summary:`Jane Eyre follows an orphaned girl who grows through neglect, cruelty, education, work, love, and moral testing. Jane begins life powerless, but she develops a powerful inner conviction that dignity does not depend on wealth, beauty, or social rank.
+
+As a governess at Thornfield Hall, she falls in love with Edward Rochester, a complicated and commanding employer. Their relationship gives the novel emotional intensity, but Jane’s deepest struggle is with herself. She longs for love without surrendering conscience or equality. When remaining with Rochester would violate her principles, she leaves despite the pain and uncertainty.
+
+The novel blends romance, Gothic mystery, social criticism, and spiritual conflict. For young readers, Jane is compelling because she refuses both submission and emotional numbness. She wants belonging, but not at the price of self-betrayal. Her independence is not isolation; it is the ability to choose relationship freely. Jane Eyre remains powerful because it insists that quiet, socially insignificant people possess full inner lives and an absolute claim to respect.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The Tenant of Wildfell Hall", author:"Anne Brontë", genre:"Victorian Fiction / Social Criticism",
+        note:"A courageous novel about marriage, addiction, abuse, motherhood, and a woman reclaiming her life.",
+        summary:`The Tenant of Wildfell Hall centres on Helen Graham, a mysterious woman who arrives at a decaying country house with her young son. Through her diary, the reader learns that she fled a destructive marriage to Arthur Huntingdon, whose charm gave way to alcoholism, infidelity, cruelty, and moral decline.
+
+Anne Brontë treats marriage with unusual realism for the nineteenth century. Helen is not presented as disloyal for leaving. She is shown as a woman attempting to protect her child and preserve her own moral life. The novel also examines how society excuses male misconduct while judging women harshly for resisting it.
+
+For young readers, the book is valuable because it distinguishes love from rescue, patience from self-erasure, and commitment from captivity. Helen’s choices involve fear, practical difficulty, social danger, and emotional conflict. She is not free simply because she wishes to be; she must plan, work, endure judgement, and act. The novel remains strikingly modern in its treatment of boundaries, addiction, coercive relationships, and the right to leave what is destroying you.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The 5 AM Club", author:"Robin Sharma", genre:"Productivity / Personal Development",
+        note:"A motivational framework for protecting the first hour of the day for personal growth.",
+        summary:`The 5 AM Club presents its ideas through a fictional story about a struggling artist, an entrepreneur, and an eccentric mentor. Its central proposal is that waking early creates a protected period before the demands of the world begin. Sharma calls the first hour the “Victory Hour” and divides it into movement, reflection, and growth.
+
+The book argues that mornings can be used to build physical energy, emotional stability, concentration, and skill. Exercise wakes the body, reflection clarifies direction, and learning compounds knowledge. The deeper point is not that 5:00 a.m. is magical. It is that valuable activities need protected time and a repeatable ritual.
+
+For young professionals, the book can be useful if approached flexibly. A routine must support health rather than become a performance of discipline. Someone working late shifts may need a different schedule. The essential lesson is to claim part of the day before distraction claims it. Build a morning structure that makes exercise, reading, planning, or creative work more likely—even if your personal “5 AM” occurs at another hour.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Fountainhead", author:"Ayn Rand", genre:"Philosophical Fiction / Architecture",
+        note:"A novel about creative independence, integrity, compromise, and the cost of living second-hand.",
+        summary:`The Fountainhead follows Howard Roark, an uncompromising architect who refuses to imitate established styles or surrender his designs to public taste. Around him are characters who represent different relationships to ambition, approval, power, and creativity. Peter Keating seeks prestige through conformity, while critic Ellsworth Toohey gains influence by shaping public opinion.
+
+The novel’s central conflict concerns creative integrity. Roark would rather struggle independently than succeed by producing work he does not believe in. Ayn Rand contrasts the “first-hander,” who creates from direct thought and conviction, with the “second-hander,” who lives through other people’s opinions.
+
+For young readers, the novel can inspire courage and independence, but it should also be read critically. Roark’s strength can become emotional distance, and Rand’s moral world is deliberately severe. The book raises worthwhile questions: How much compromise is practical? When does adaptation become self-betrayal? How does a person maintain originality while still working with clients, institutions, and communities? Its lasting power lies in its passionate defence of the creator who refuses to fake conviction.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Subtle Art of Not Giving a F*ck", author:"Mark Manson", genre:"Personal Development / Psychology",
+        note:"A blunt argument for choosing better values instead of trying to feel positive all the time.",
+        summary:`The Subtle Art of Not Giving a F*ck challenges the idea that a good life requires constant positivity, exceptional achievement, or endless confidence. Mark Manson argues that everyone cares deeply about something; the real task is choosing what deserves concern.
+
+The book focuses on responsibility, values, limits, uncertainty, and the inevitability of difficulty. Problems cannot be eliminated permanently. Solving one set usually creates another. Therefore, a meaningful life depends on choosing problems worth having. Manson also distinguishes responsibility from blame. You may not be responsible for what happened to you, but you remain responsible for how you respond.
+
+For young people surrounded by comparison and pressure to appear successful, the book offers relief. It encourages acceptance of ordinariness, honest self-assessment, and commitment to values that can withstand discomfort. Its provocative language can sometimes overshadow its seriousness, but the central message is thoughtful: stop spending emotional energy on every opinion, image, and temporary feeling. Care deeply about fewer things—relationships, principles, useful work, and responsibilities you are willing to carry.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"Linchpin: Are You Indispensable?", author:"Seth Godin", genre:"Work / Creativity / Leadership",
+        note:"A call to bring judgement, generosity, courage, and creative initiative into ordinary work.",
+        summary:`Linchpin argues that the modern workplace rewards more than obedience and technical compliance. A linchpin is someone who brings judgement, initiative, generosity, emotional labour, and creativity to work that cannot be fully reduced to instructions.
+
+Seth Godin distinguishes between merely completing assigned tasks and creating value that would be difficult to replace. This does not mean becoming overworked or making an organisation dependent on unhealthy sacrifice. It means noticing what needs to be done, connecting people, solving ambiguous problems, and contributing humanity where systems alone are insufficient.
+
+The book also examines Resistance—the fear that prevents people from sharing ideas, making art, or taking responsibility. Godin argues that generosity and courage turn work into a gift. For interns, Linchpin is especially relevant because formal authority is limited at the beginning of a career. Yet usefulness does not require a title. A young person can become memorable by communicating clearly, documenting well, learning quickly, supporting others, and solving problems thoughtfully. The central question is not “How do I protect my job?” but “How do I make a contribution that matters?”`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"On the Shortness of Life", author:"Lucius Annaeus Seneca", genre:"Stoic Philosophy",
+        note:"A short, urgent essay about attention, mortality, and the misuse of time.",
+        summary:`On the Shortness of Life argues that life is not necessarily too short; much of it is simply wasted, surrendered, or lived according to other people’s demands. Seneca criticises those who carefully protect money and property while allowing anyone to consume their time.
+
+The essay examines several forms of busyness: ambition, luxury, anxiety, social obligation, and endless preparation for a future in which life will finally begin. Seneca’s target is not productive work itself. It is unconscious occupation—activity that fills the calendar without serving a considered life.
+
+Philosophy, in Seneca’s view, expands time because it connects a person to the wisdom of past thinkers and teaches them to inhabit the present deliberately. For young professionals, the essay is a strong warning against postponement. Careers, relationships, reading, health, and creativity can all be delayed under the assumption that there will be more time later. Seneca asks the reader to account honestly for their days. The message is not panic. It is ownership: your time is your life, and allowing it to be consumed carelessly is the deepest form of loss.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Zero to One", author:"Peter Thiel with Blake Masters", genre:"Entrepreneurship / Innovation",
+        note:"A contrarian guide to building companies that create genuinely new value.",
+        summary:`Zero to One distinguishes between horizontal progress—copying and scaling what already works—and vertical progress—creating something genuinely new. Going from one to many spreads an existing model. Going from zero to one produces an original solution.
+
+Peter Thiel argues that strong businesses often begin by dominating a small market rather than competing weakly in a large one. He encourages founders to develop proprietary technology, network effects, strong distribution, and a durable brand. The book also challenges the belief that the future should be left to chance. Founders need a definite view of what should exist and why they are uniquely positioned to build it.
+
+For young entrepreneurs, the book is valuable because it asks sharper questions than “How do I start a business?” What important truth do few people agree with you about? What problem will remain valuable to solve for many years? Why will this company be difficult to copy? Some claims are deliberately provocative and should be debated, but the central challenge is excellent: do not merely join competition. Search for unexplored value and build something the world did not previously have.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Dune", author:"Frank Herbert", genre:"Science Fiction / Political Epic",
+        note:"A vast story of ecology, power, religion, leadership, and the danger of heroic myths.",
+        summary:`Dune follows Paul Atreides, whose family is assigned control of Arrakis, a desert planet that produces the most valuable substance in the known universe. Political betrayal destroys his family’s position, forcing Paul into the desert among the Fremen people.
+
+The novel combines adventure with ecology, religion, economics, colonialism, and political manipulation. Water shapes every aspect of life on Arrakis, making the environment an active force rather than a background. Spice creates wealth and interdependence, while competing institutions struggle for control. Paul’s growing power fulfils prophecies partly engineered by earlier political and religious planning.
+
+For young readers, Dune is more than a hero’s journey. It questions the desire for charismatic saviours. Herbert shows how populations can project hope onto a leader and how leaders can become trapped by the movements formed around them. The book rewards careful reading because nearly every system affects another: ecology shapes culture, scarcity shapes power, and belief shapes history. Its enduring lesson is that leadership, even when brilliant, can produce consequences beyond anyone’s control.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Atomic Habits", author:"James Clear", genre:"Habits / Personal Development",
+        note:"A practical system for making good behaviour easier and harmful behaviour harder.",
+        summary:`Atomic Habits explains why small behaviours, repeated consistently, can produce major changes over time. James Clear argues that habits compound in the same way as money: the immediate result may look insignificant, but the long-term direction becomes powerful.
+
+The book moves attention away from goals alone and toward systems. Goals identify desired outcomes, while systems describe what is repeatedly done. Clear also emphasises identity. Lasting behaviour change becomes easier when actions are treated as evidence of the person one is becoming: a reader reads, a runner trains, and a reliable colleague follows through.
+
+Clear organises habit formation into four laws: make it obvious, attractive, easy, and satisfying. Harmful habits can be weakened by reversing those laws. Environment matters because visible cues and friction often influence behaviour more reliably than motivation.
+
+For interns, the book is immediately practical. It can be applied to punctuality, exercise, saving, reporting, reading, and professional communication. Its most encouraging lesson is that improvement does not require dramatic reinvention. Change the next repetition, then repeat it again.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Psychology of Money", author:"Morgan Housel", genre:"Personal Finance / Behavioural Psychology",
+        note:"Stories about why financial success depends more on behaviour than raw intelligence.",
+        summary:`The Psychology of Money explores the emotional and behavioural side of financial decisions. Morgan Housel argues that people do not make money choices inside spreadsheets. They make them through personal history, fear, ambition, envy, memory, and different experiences of risk.
+
+The book distinguishes becoming wealthy from staying wealthy. Building wealth may require optimism and risk-taking, while preserving it requires humility, room for error, and awareness that the future will contain surprises. Housel also explains that wealth is often invisible. Expensive possessions display spending, not necessarily financial security. True wealth is the freedom represented by assets not yet spent.
+
+Compounding is another central theme. Exceptional results can emerge from ordinary returns sustained over long periods. This makes patience and survival more valuable than constant excitement.
+
+For young professionals, the book offers a calm alternative to financial hype. It encourages saving without needing a precise future purpose, avoiding unnecessary comparison, and building a plan one can continue through uncertainty. The deepest message is that managing money well is not simply knowing more. It is behaving reasonably for a very long time.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"The Idiot", author:"Fyodor Dostoevsky", genre:"Psychological Fiction / Russian Classic",
+        note:"A tragic investigation of innocence, compassion, vanity, obsession, and a damaged society.",
+        summary:`The Idiot follows Prince Myshkin, a gentle and compassionate man returning to Russia after treatment for epilepsy. His openness, honesty, and lack of social calculation cause others to regard him as naive or foolish.
+
+Myshkin enters a world driven by money, pride, jealousy, erotic obsession, and status. He becomes entangled with Nastasya Filippovna, a traumatised woman who alternates between longing for rescue and believing herself unworthy of it, and Aglaya, whose idealism is mixed with social expectation. Myshkin wants to save everyone, but compassion without practical power cannot resolve every wound.
+
+Dostoevsky asks what would happen if a genuinely good person entered a society shaped by vanity and suffering. The result is not simple moral victory. Myshkin’s goodness exposes others, attracts them, and sometimes intensifies their conflict. For young readers, the novel offers a difficult lesson: kindness is essential, but kindness alone cannot control another person’s choices or heal every injury. The book is emotionally demanding because it refuses easy villains and easy salvation.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"Rework", author:"Jason Fried and David Heinemeier Hansson", genre:"Business / Entrepreneurship",
+        note:"A concise challenge to traditional business assumptions, meetings, planning, and unnecessary complexity.",
+        summary:`Rework presents a direct, practical philosophy for building businesses without adopting every convention associated with corporate life. The authors challenge long business plans, excessive meetings, premature hiring, workaholism, and the belief that companies must grow rapidly to be successful.
+
+The book encourages founders to start with what they have, build the simplest useful version, and expose it to real customers. Constraints can improve focus because they force clear choices. The authors also argue that many meetings interrupt work rather than advance it, and that clear writing is one of the most important business skills.
+
+For interns and small entrepreneurs, Rework is appealing because it removes ceremony. You do not need to imitate a large company before you have built something useful. Begin, learn, communicate, and improve. However, the book’s brevity means some advice works better as provocation than universal law. Complex organisations still need planning and coordination. Its enduring value is permission: question inherited practices, remove what adds no value, and concentrate on making something useful enough that people genuinely want it.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Adventures of Tom Sawyer", author:"Mark Twain", genre:"Adventure / American Classic",
+        note:"A lively story of childhood imagination, friendship, mischief, fear, and moral awakening.",
+        summary:`The Adventures of Tom Sawyer follows an imaginative boy growing up along the Mississippi River. Tom avoids chores, invents games, seeks admiration, falls in love, and turns ordinary village life into adventure. His clever persuasion during the famous fence-painting episode reveals his instinctive understanding of human desire: work becomes attractive when presented as scarce and voluntary.
+
+The novel is playful, but it also grows darker. Tom and Huckleberry Finn witness a murder and must decide whether to speak despite fear of the killer. Their adventures therefore test courage as well as imagination.
+
+Mark Twain captures childhood as a world with its own laws, status systems, superstitions, and intense emotions. For young readers, the book can be enjoyed as an adventure while also examining responsibility. Tom often wants the glory of bravery, yet real courage requires acting when applause is absent and risk is genuine. The novel’s humour and energy make it accessible, while its moral turning points show a child gradually discovering that choices affect other people.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"bestseller", title:"The Catcher in the Rye", author:"J. D. Salinger", genre:"Coming-of-Age Fiction",
+        note:"A restless, intimate portrait of grief, alienation, hypocrisy, and the fear of growing up.",
+        summary:`The Catcher in the Rye follows Holden Caulfield over several days after he is expelled from school. Wandering through New York, Holden criticises the “phoniness” of adults, institutions, and social expectations. His voice is funny, repetitive, defensive, and deeply vulnerable.
+
+Beneath Holden’s judgement is grief. He has not recovered from the death of his younger brother, and his disgust with the adult world partly protects him from pain and change. His fantasy of being a “catcher in the rye” reveals his desire to save children from falling out of innocence.
+
+The novel resonates with readers who have felt alienated, misunderstood, or exhausted by performance. Yet it does not present Holden’s perspective as complete truth. His isolation distorts his judgement, and his need for connection repeatedly breaks through his cynicism. For young readers, the book creates space to discuss grief, mental health, authenticity, and the difference between seeing hypocrisy and building a meaningful alternative. Holden’s struggle reminds us that criticism can express intelligence, but it can also become armour against participation in life.`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      },
+      {badge:"highly recommended", title:"7 Strategies for Wealth & Happiness", author:"Jim Rohn", genre:"Personal Development / Wealth",
+        note:"A practical philosophy of goal-setting, learning, discipline, relationships, and financial progress.",
+        summary:`Jim Rohn’s 7 Strategies for Wealth & Happiness presents personal development as the foundation of external progress. The book’s central principle is that income and opportunity often grow when the person grows. Rather than waiting for circumstances to improve, Rohn encourages readers to improve skills, discipline, communication, and value.
+
+The seven strategies include using goals to shape direction, seeking knowledge, learning how to change, controlling finances, mastering time, surrounding oneself with constructive people, and practising the art of living well. Rohn’s financial advice emphasises allocating money deliberately rather than consuming everything earned.
+
+For young professionals, the book is accessible because it combines ambition with practical habits. Reading, planning, saving, reflection, and better associations may seem ordinary, but their effects compound. Some examples reflect an earlier era and should be adapted to modern realities, yet the philosophy remains useful. Rohn does not promise effortless wealth. He argues that a person can gradually expand capability and choice. The question running through the book is simple: What are you becoming through the way you currently live?`,
+        keyIdeas:[], application:"", quote:"", reflection:""
+      }
     ]
   },
   {
@@ -828,7 +1069,7 @@ let lockedScrollY = 0;
 function loadAddedBooks(){
   try{
     const added = JSON.parse(localStorage.getItem(ADDED_BOOKS_STORAGE_KEY) || "[]");
-    const booksShelf = shelves.find(s => s.title === "Books & Audiobooks");
+    const booksShelf = shelves.find(s => s.title === "Books");
     if(booksShelf && Array.isArray(added)){
       added.forEach(book => booksShelf.items.push(book));
     }
@@ -935,14 +1176,14 @@ function openShelf(key){
 
   document.getElementById('modalListHead').textContent = s.listHead || '';
   const addBookArea = document.getElementById('addBookArea');
-  addBookArea.style.display = s.title === "Books & Audiobooks" ? "" : "none";
+  addBookArea.style.display = s.title === "Books" ? "" : "none";
   document.getElementById('addBookForm').classList.remove('open');
   document.getElementById('modalItems').innerHTML = s.items.map((item,index) => `
     <div class="item" onclick="openItem('${encodeURIComponent(s.title)}',${index})" role="button" tabindex="0">
-      <span class="item-badge ${item.badge||''}">${(item.badge||'item').toUpperCase()}</span>
+      <span class="item-badge ${item.badge||''}">${item.badge === 'highly recommended' ? 'HIGHLY RECOMMENDED' : (item.badge||'item').toUpperCase()}</span>
       <div class="item-info">
         <div class="item-title">${item.title}</div>
-        ${item.author ? `<div class="item-author">${item.author}</div>` : ''}
+        ${(item.author || item.genre) ? `<div class="item-author">${item.author || ''}${item.genre ? ` · ${item.genre}` : ''}</div>` : ''}
         ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
       </div>
       <span class="item-open">›</span>
@@ -989,7 +1230,7 @@ function openItem(encodedShelfTitle,index){
   document.getElementById('itemDetailContent').innerHTML = `
     <span class="detail-badge">${escapeHTML((item.badge||'resource').toUpperCase())}</span>
     <h3>${escapeHTML(item.title)}</h3>
-    ${item.author ? `<div class="detail-author">${escapeHTML(item.author)}</div>` : ''}
+    ${(item.author || item.genre) ? `<div class="detail-author">${escapeHTML(item.author || '')}${item.genre ? ` · ${escapeHTML(item.genre)}` : ''}</div>` : ''}
     ${summary}
     ${ideas}
     ${item.application ? `<div class="detail-section"><h4>How to use this</h4><p>${escapeHTML(item.application)}</p></div>` : ''}
@@ -1039,7 +1280,7 @@ function submitNewBook(){
     return;
   }
 
-  const booksShelf = shelves.find(s => s.title === "Books & Audiobooks");
+  const booksShelf = shelves.find(s => s.title === "Books");
   if(!booksShelf) return;
 
   const book = {
@@ -1069,7 +1310,7 @@ function submitNewBook(){
   toggleAddBookForm(false);
 
   renderGrid();
-  openShelf("Books & Audiobooks");
+  openShelf("Books");
 }
 
 function getActiveItem(){
@@ -1084,6 +1325,7 @@ function editCurrentItem(){
   const item = active.item;
   document.getElementById('editTitle').value = item.title || "";
   document.getElementById('editAuthor').value = item.author || "";
+  document.getElementById('editGenre').value = item.genre || "";
   document.getElementById('editNote').value = item.note || "";
   document.getElementById('editSummary').value = item.summary || "";
   document.getElementById('editKeyIdeas').value = Array.isArray(item.keyIdeas) ? item.keyIdeas.join("\n") : "";
@@ -1106,6 +1348,7 @@ function saveItemEdits(){
   const item = active.item;
   item.title = document.getElementById('editTitle').value.trim() || item.title;
   item.author = document.getElementById('editAuthor').value.trim();
+  item.genre = document.getElementById('editGenre').value.trim();
   item.note = document.getElementById('editNote').value.trim();
   item.summary = document.getElementById('editSummary').value.trim();
   item.keyIdeas = document.getElementById('editKeyIdeas').value
@@ -1116,7 +1359,7 @@ function saveItemEdits(){
 
   const saved = getSavedEdits();
   saved[activeShelfTitle + "::" + activeItemIndex] = {
-    title:item.title,author:item.author,note:item.note,summary:item.summary,
+    title:item.title,author:item.author,genre:item.genre,note:item.note,summary:item.summary,
     keyIdeas:item.keyIdeas,application:item.application,quote:item.quote,
     reflection:item.reflection
   };
