@@ -241,6 +241,59 @@ h1{
   margin-top:20px;padding:16px 18px;border-left:4px solid var(--green);
   background:rgba(118,214,162,.06);color:#d9f4e7;line-height:1.7;
 }
+.reading-links{
+  margin-top:22px;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.reading-links h4{
+  margin:0 0 4px;
+  font-family:Georgia,serif;
+  font-size:23px;
+  font-weight:400;
+  color:#fff;
+}
+.reading-link{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:14px 15px;
+  border:1px solid rgba(190,205,255,.18);
+  border-radius:14px;
+  background:rgba(255,255,255,.045);
+  color:#eef3ff;
+  text-decoration:none;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
+}
+.reading-link:hover{
+  transform:translateX(4px);
+  background:rgba(125,168,255,.10);
+  border-color:rgba(125,168,255,.30);
+}
+.reading-link-num{
+  width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,200,92,.12);
+  color:#ffd070;font-size:12px;font-weight:700;
+}
+.reading-link-title{
+  font-family:Georgia,serif;
+  font-size:17px;
+  line-height:1.35;
+}
+.reading-link-source{
+  display:block;
+  margin-top:3px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  color:#8fa0cf;
+}
+.reading-link-arrow{
+  color:#7da8ff;
+  font-size:20px;
+}
 .detail-empty{
   padding:18px;border:1px dashed rgba(190,205,255,.25);
   border-radius:14px;color:#a8b6df;line-height:1.7;
@@ -331,7 +384,7 @@ h1{
     <div class="eyebrow">YES Growth Library</div>
     <h1>The YES Knowledge Library</h1>
     <p class="subtitle">Where young minds learn as if they were to live forever</p>
-    <p class="intro">Books, ideas, mental models, emotional intelligence, psychology, fitness, nutrition and serious investing.</p>
+    <p class="intro">Books, ideas, mental models, emotional intelligence, psychology, fitness, nutrition and serious investing — designed to tempt every intern to search for at least one useful idea.</p>
     <div class="searchbox">
       <span>⌕</span>
       <input id="search" placeholder="Search topics, ideas, habits, books…">
@@ -468,18 +521,106 @@ const shelves = [
     title:"Articles & Essays",
     tagline:"Sharp ideas from the writers worth reading.",
     img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700&q=80&fit=crop",
-    why:"The best thinking alive today lives in essays and blogs — not textbooks. One article at the right moment can redirect a year.",
-    tip:"Read with a question in mind. Arrive curious about something specific, and use the article to answer it. Passive reading evaporates.",
-    listHead:"Writers & sources worth following",
+    why:"The best thinking alive today often lives in essays and blogs — not textbooks. One article at the right moment can redirect a year.",
+    tip:"Choose one writer. Read one essay slowly. Write down one sentence you want to carry into the week.",
+    listHead:"Writers — open one to see five selected essays",
     items:[
-      {badge:"essay", title:"Paul Graham", author:"paulgraham.com", note:"Essays on startups, thinking, and how to do great work. 'Do Things That Don't Scale' and 'Keep Your Identity Small' are essential."},
-      {badge:"essay", title:"Morgan Housel", author:"The Collaborative Fund Blog", note:"The best writer on money, psychology, and human behaviour alive today. Every essay is short and dense with insight."},
-      {badge:"essay", title:"James Clear", author:"jamesclear.com", note:"3-2-1 newsletter every Thursday: 3 ideas, 2 quotes, 1 question. One of the most-read newsletters in the world."},
-      {badge:"essay", title:"Shane Parrish", author:"Farnam Street (fs.blog)", note:"Mental models, decision-making, and how to think clearly. His Knowledge Project podcast pairs well with the essays."},
-      {badge:"essay", title:"Tim Urban", author:"Wait But Why", note:"Extraordinarily long, extraordinarily good essays on AI, procrastination, Elon Musk, and how to pick a career. Start with 'Your Life in Weeks'."},
-      {badge:"essay", title:"Kevin Kelly", author:"kk.org", note:"Co-founder of Wired. His '103 Bits of Advice I Wish I Had Known' is required reading for any young professional."},
-      {badge:"essay", title:"Seth Godin", author:"seths.blog", note:"A short post every single day for decades. On marketing, leadership, art, and courage. Search 'the dip' and 'tribes'."},
-      {badge:"essay", title:"Peter Diamandis", author:"diamandis.com", note:"Exponential technology, abundance mindset, and what the next 30 years will look like. Written for builders."},
+      {
+        badge:"essay", title:"Paul Graham", author:"Sam’s Notion Notes",
+        note:"Startups, ambition, wealth, reading, and the difficult work of becoming excellent.",
+        summary:"These five essays are linked directly to Sam’s Notion notes. Interns can read the source ideas together with the observations and passages Sam has already preserved.",
+        links:[
+          {title:"How to Make Wealth", source:"Sam’s Notion notes", url:"https://app.notion.com/p/cancelo10/How-to-Make-Wealth-May-2004-259644d472d78070840bf023fd9dd384"},
+          {title:"Cities and Ambition", source:"Sam’s Notion notes", url:"https://app.notion.com/p/24e644d472d780f1a551d6a2cc2cb4cd"},
+          {title:"How To Do Great Work", source:"Sam’s Notion notes", url:"https://app.notion.com/p/25c644d472d780dcbca6ccbaf0104346"},
+          {title:"The Need To Read", source:"Sam’s Notion notes", url:"https://app.notion.com/p/24e644d472d78096ad2fd08c1cc0c2e1"},
+          {title:"How to Earn a Billion Dollars", source:"Sam’s Notion notes", url:"https://app.notion.com/p/37f644d472d780a7a2f8dbdb4a3d0a7b"}
+        ]
+      },
+      {
+        badge:"essay", title:"Morgan Housel", author:"Collaborative Fund",
+        note:"Money, psychology, independence, luck, history, and the hidden forces shaping ordinary decisions.",
+        summary:"Morgan Housel is unusually good at turning financial and historical ideas into stories that stay in the mind. These five selections are especially strong for young professionals.",
+        links:[
+          {title:"Pure Independence", source:"Collaborative Fund", url:"https://collabfund.com/blog/pure-independence/"},
+          {title:"What A World (A few Stories)", source:"Collaborative Fund", url:"https://collabfund.com/blog/what-a-world/"},
+          {title:"Little Rules About Big Things", source:"Collaborative Fund", url:"https://collabfund.com/blog/little-rules-about-big-things/"},
+          {title:"Makes You Think", source:"Collaborative Fund", url:"https://collabfund.com/blog/makes-you-think/"},
+          {title:"Lucky vs. Repeatable", source:"Collaborative Fund", url:"https://collabfund.com/blog/lucky-vs-repeatable/"}
+        ]
+      },
+      {
+        badge:"essay", title:"James Clear", author:"jamesclear.com",
+        note:"Habits, systems, identity, deliberate practice, and making improvement easier to repeat.",
+        summary:"James Clear writes practical essays that convert behavioural science into small actions. These five form a strong introduction to his thinking.",
+        links:[
+          {title:"Forget About Setting Goals. Focus on This Instead.", source:"James Clear", url:"https://jamesclear.com/goals-systems"},
+          {title:"Motivation: The Scientific Guide on How to Get and Stay Motivated", source:"James Clear", url:"https://jamesclear.com/motivation"},
+          {title:"Deliberate Practice: What It Is, What It’s Not, and How to Use It", source:"James Clear", url:"https://jamesclear.com/deliberate-practice-theory"},
+          {title:"How to Build New Habits by Taking Advantage of Old Ones", source:"James Clear", url:"https://jamesclear.com/habit-stacking"},
+          {title:"Identity-Based Habits: How to Actually Stick to Your Goals", source:"James Clear", url:"https://jamesclear.com/identity-based-habits"}
+        ]
+      },
+      {
+        badge:"essay", title:"Shane Parrish", author:"Farnam Street",
+        note:"Mental models and decision tools for seeing reality more clearly.",
+        summary:"Farnam Street helps readers master the strongest ideas other people have already figured out. These five essays give interns a practical thinking toolkit.",
+        links:[
+          {title:"Mental Models: The Best Way to Make Intelligent Decisions", source:"Farnam Street", url:"https://fs.blog/mental-models/"},
+          {title:"Circle of Competence", source:"Farnam Street", url:"https://fs.blog/circle-of-competence/"},
+          {title:"First Principles Thinking", source:"Farnam Street", url:"https://fs.blog/first-principles/"},
+          {title:"Second-Order Thinking", source:"Farnam Street", url:"https://fs.blog/second-order-thinking/"},
+          {title:"Inversion: The Crucial Thinking Skill Nobody Ever Taught You", source:"Farnam Street", url:"https://fs.blog/inversion/"}
+        ]
+      },
+      {
+        badge:"essay", title:"Tim Urban", author:"Wait But Why",
+        note:"Long, funny, visual essays about time, careers, procrastination, relationships, and the future.",
+        summary:"Tim Urban makes difficult ideas approachable without making them shallow. These essays are excellent starting points for someone rebuilding a reading habit.",
+        links:[
+          {title:"The Tail End", source:"Wait But Why", url:"https://waitbutwhy.com/2015/12/the-tail-end.html"},
+          {title:"Your Life in Weeks", source:"Wait But Why", url:"https://waitbutwhy.com/2014/05/life-weeks.html"},
+          {title:"Why Procrastinators Procrastinate", source:"Wait But Why", url:"https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html"},
+          {title:"How to Pick a Career (That Actually Fits You)", source:"Wait But Why", url:"https://waitbutwhy.com/2018/04/picking-career.html"},
+          {title:"The Fermi Paradox", source:"Wait But Why", url:"https://waitbutwhy.com/2014/05/fermi-paradox.html"}
+        ]
+      },
+      {
+        badge:"essay", title:"Kevin Kelly", author:"kk.org",
+        note:"Advice for creators, young professionals, independent thinkers, and people building for the long term.",
+        summary:"Kevin Kelly’s writing is calm, generous, and unusually future-facing. These pieces reward re-reading.",
+        links:[
+          {title:"1,000 True Fans", source:"The Technium", url:"https://kk.org/thetechnium/1000-true-fans/"},
+          {title:"You Are Not Late", source:"The Technium", url:"https://kk.org/thetechnium/you-are-not-late/"},
+          {title:"68 Bits of Unsolicited Advice", source:"The Technium", url:"https://kk.org/thetechnium/68-bits-of-unsolicited-advice/"},
+          {title:"103 Bits of Advice I Wish I Had Known", source:"The Technium", url:"https://kk.org/thetechnium/103-bits-of-advice-i-wish-i-had-known/"},
+          {title:"Better Than Free", source:"The Technium", url:"https://kk.org/thetechnium/better-than-free/"}
+        ]
+      },
+      {
+        badge:"essay", title:"Seth Godin", author:"seths.blog",
+        note:"Professionalism, creative courage, useful work, leadership, and the discipline of shipping.",
+        summary:"Seth Godin’s posts are short enough to read in minutes but often useful for days. These selections come from the themes preserved in Sam’s own reading notes.",
+        links:[
+          {title:"The Le Guin Precepts", source:"Seth’s Blog", url:"https://seths.blog/2023/09/the-le-guin-precepts/"},
+          {title:"Project Management", source:"Seth’s Blog", url:"https://seths.blog/2023/06/project-management/"},
+          {title:"The A.R.E. Skills Matter More Than Ever", source:"Seth’s Blog", url:"https://seths.blog/2023/06/the-a-r-e-skills-matter-more-than-ever/"},
+          {title:"The Pizza Principle", source:"Seth’s Blog", url:"https://seths.blog/2023/10/the-pizza-principle/"},
+          {title:"The Minimum Viable Audience", source:"Seth’s Blog", url:"https://seths.blog/2014/02/the-minimum-viable-audience-2/"}
+        ]
+      },
+      {
+        badge:"essay", title:"Peter Diamandis", author:"Sam’s Notion Notes + diamandis.com",
+        note:"Mission, abundance, exponential technologies, AI, entrepreneurship, and thinking at civilisational scale.",
+        summary:"These selections connect directly to Peter Diamandis material Sam has already begun collecting, with one foundational article from Peter’s official site.",
+        links:[
+          {title:"Drowning in Choices? Your Mission is Your Lifeline", source:"Sam’s Notion notes", url:"https://app.notion.com/p/355644d472d780f59cb3ee419a889192"},
+          {title:"What Superintelligence Means for Humanity", source:"Sam’s Notion notes", url:"https://app.notion.com/p/356644d472d780c9bd82e38944f41084"},
+          {title:"The Mass Extinction of Universities", source:"Sam’s Notion notes", url:"https://app.notion.com/p/356644d472d7801e861df02a16ec76dc"},
+          {title:"How to Build a Billion-Dollar AI Company", source:"Sam’s Notion notes", url:"https://app.notion.com/p/35c644d472d7805fae21dad664083f26"},
+          {title:"The 6 D’s", source:"Peter Diamandis", url:"https://www.diamandis.com/blog/the-6ds"}
+        ]
+      }
     ]
   },
   {
@@ -852,6 +993,18 @@ function openItem(encodedShelfTitle,index){
     ${summary}
     ${ideas}
     ${item.application ? `<div class="detail-section"><h4>How to use this</h4><p>${escapeHTML(item.application)}</p></div>` : ''}
+    ${Array.isArray(item.links) && item.links.length ? `
+      <div class="reading-links">
+        <h4>Selected reading</h4>
+        ${item.links.map((link,index)=>`
+          <a class="reading-link" href="${escapeHTML(link.url)}" target="_blank" rel="noopener noreferrer">
+            <span class="reading-link-num">${index+1}</span>
+            <span class="reading-link-title">${escapeHTML(link.title)}
+              <span class="reading-link-source">${escapeHTML(link.source || "Open article")}</span>
+            </span>
+            <span class="reading-link-arrow">↗</span>
+          </a>`).join("")}
+      </div>` : ''}
     ${item.quote ? `<div class="detail-quote">“${escapeHTML(item.quote)}”</div>` : ''}
     ${item.reflection ? `<div class="detail-reflection"><strong>Reflect:</strong> ${escapeHTML(item.reflection)}</div>` : ''}
     <div class="detail-actions">
