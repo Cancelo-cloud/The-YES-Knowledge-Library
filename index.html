@@ -6,21 +6,13 @@
 <title>YES Knowledge Library</title>
 <style>
 :root{
-  --night:#020720;
-  --night2:#071445;
-  --card:#162b69;
-  --card2:#203c82;
-  --text:#f7f8ff;
-  --muted:#bdc8ee;
-  --gold:#ffc85c;
-  --line:rgba(190,205,255,.22);
-  --green:#76d6a2;
+  --night:#020720;--night2:#071445;--text:#f7f8ff;--muted:#bdc8ee;
+  --gold:#ffc85c;--line:rgba(190,205,255,.22);--green:#76d6a2;
   --shadow:0 18px 40px rgba(0,0,0,.28);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);font-family:Arial,Helvetica,sans-serif;
   background:
     radial-gradient(circle at 8% 16%,rgba(255,255,255,.28) 0 1px,transparent 2px),
     radial-gradient(circle at 23% 34%,rgba(255,255,255,.22) 0 1px,transparent 2px),
@@ -34,7 +26,28 @@ body{
 }
 button,input{font:inherit;cursor:pointer}
 
-/* HERO — exact from attached design */
+/* ── SHOOTING STAR: diagonal top-left, fades midway ── */
+.shooting-star{
+  position:absolute;top:52px;left:-220px;width:180px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(210,226,255,.3),white);
+  box-shadow:0 0 12px rgba(255,255,255,.7);
+  transform:rotate(20deg);
+  opacity:0;
+  pointer-events:none;z-index:10;
+  animation:shoot 28s linear infinite;
+}
+.shooting-star::after{
+  content:"";position:absolute;right:-4px;top:-3px;width:8px;height:8px;
+  border-radius:50%;background:white;box-shadow:0 0 16px white;
+}
+@keyframes shoot{
+  0%,86%,100%{opacity:0;transform:translate(0,0) rotate(20deg)}
+  88%{opacity:1;transform:translate(0,0) rotate(20deg)}
+  93%{opacity:1;transform:translate(500px,178px) rotate(20deg)}
+  95%{opacity:0;transform:translate(610px,218px) rotate(20deg)}
+}
+
+/* HERO */
 .hero{
   min-height:560px;display:flex;align-items:center;justify-content:center;
   padding:55px 24px 75px;text-align:center;position:relative;overflow:hidden;
@@ -46,14 +59,11 @@ button,input{font:inherit;cursor:pointer}
 .hero:after{width:280px;height:280px;right:-150px;bottom:-25px}
 .eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:14px;font-weight:700;color:#d3dcff}
 h1{
-  margin:28px 0 12px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(52px,8vw,102px);font-weight:400;line-height:.98;
-  color:#fff;
+  margin:28px 0 12px;font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(52px,8vw,102px);font-weight:400;line-height:.98;color:#fff;
 }
 .subtitle{
-  margin:0 0 24px;
-  font-family:Georgia,"Times New Roman",serif;
+  margin:0 0 24px;font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(19px,2.3vw,28px);font-style:italic;color:var(--gold);
 }
 .intro{max-width:860px;margin:0 auto 34px;color:#ccd6f7;font-size:17px;line-height:1.75}
@@ -69,236 +79,126 @@ h1{
 }
 .searchbox input::placeholder{color:#aebbe5}
 
-/* ── SHOOTING STAR ── diagonal, top-left to bottom-right */
-.shooting-star{
-  position:fixed;
-  top:0; left:0;
-  width:180px; height:2px;
-  background:linear-gradient(90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(190,214,255,.15) 20%,
-    rgba(255,255,255,.9) 75%,
-    rgba(255,255,255,1) 100%);
-  border-radius:999px;
-  box-shadow:0 0 8px rgba(255,255,255,.5), 0 0 20px rgba(125,168,255,.3);
-  transform-origin: left center;
-  transform: rotate(35deg) translateX(-220px);
-  opacity:0;
-  pointer-events:none;
-  z-index:100;
-  animation: diagStar 14s ease-in-out infinite;
+/* LIBRARY */
+.library{
+  max-width:1380px;margin:auto;padding:50px 28px 70px;
+  background:linear-gradient(180deg,rgba(59,86,177,.22),rgba(25,46,116,.10));
+  border-radius:38px 38px 0 0;
 }
-.shooting-star::after{
-  content:"";
-  position:absolute;
-  right:-4px; top:-4px;
-  width:9px; height:9px;
-  border-radius:50%;
-  background:#ffffff;
-  box-shadow:0 0 10px rgba(255,255,255,.9), 0 0 28px rgba(128,170,255,.6);
-}
-@keyframes diagStar{
-  0%{
-    opacity:0;
-    transform:rotate(35deg) translateX(-220px);
-  }
-  5%{opacity:0}
-  8%{opacity:1}
-  38%{
-    opacity:1;
-    transform:rotate(35deg) translateX(160vw);
-  }
-  42%{opacity:0; transform:rotate(35deg) translateX(175vw)}
-  100%{opacity:0; transform:rotate(35deg) translateX(175vw)}
-}
+.summary{display:flex;gap:55px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:27px;margin-bottom:42px}
+.summary b{display:block;font-family:Georgia,serif;font-size:40px;font-weight:400}
+.summary small{color:#b9c5eb;text-transform:uppercase;letter-spacing:.08em}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}
+.sectionhead h2{margin:0;font-family:Georgia,serif;font-size:38px;font-weight:400}
+.sectionhead span{background:rgba(255,255,255,.08);padding:8px 13px;border-radius:999px;color:#d9e1fb;font-size:12px}
 
-/* ── HERO ── */
-.hero{
-  min-height:520px;
-  padding:56px 22px 74px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(85,110,255,.18), transparent 30%),
-    radial-gradient(circle at 12% 16%, rgba(255,255,255,.21), transparent 0.6%),
-    radial-gradient(circle at 82% 26%, rgba(255,255,255,.19), transparent 0.7%),
-    radial-gradient(circle at 20% 60%, rgba(255,255,255,.17), transparent 0.7%),
-    radial-gradient(circle at 72% 74%, rgba(255,255,255,.19), transparent 0.8%);
-}
-.hero:before,.hero:after{
-  content:"";position:absolute;
-  border:1px solid rgba(180,198,255,.12);border-radius:50%;
-}
-.hero:before{width:260px;height:260px;left:-120px;top:40px}
-.hero:after{width:220px;height:220px;right:-90px;bottom:20px}
-.hero-inner{max-width:980px}
-.eyebrow{color:#c4cdee;text-transform:uppercase;letter-spacing:.24em;font-size:14px;font-weight:700}
-.hero h1{
-  margin:22px 0 12px;
-  font-family:"Libre Caslon Display",serif;
-  font-size:clamp(46px,8vw,86px);
-  font-weight:400;line-height:1.02;letter-spacing:-.04em;color:#fff;
-  text-shadow:0 8px 30px rgba(0,0,0,.28);
-}
-.hero .sub{
-  margin:0 0 18px;
-  font-family:"Libre Baskerville",serif;
-  font-style:italic;font-size:21px;color:var(--gold);
-}
-.hero .desc{
-  max-width:760px;margin:0 auto 28px;
-  color:var(--muted);font-size:15px;line-height:1.75;
-}
-.search-wrap{max-width:720px;margin:0 auto;position:relative}
-.search-wrap svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);opacity:.65}
-.search{
-  width:100%;
-  border:1px solid rgba(165,184,255,.20);
-  background:rgba(8,18,58,.76);
-  box-shadow:0 10px 28px rgba(0,0,0,.18);
-  border-radius:999px;
-  padding:20px 24px 20px 62px;
-  font-size:18px;color:#d6defb;outline:none;
-}
-.search::placeholder{color:#b8c4ee}
-
-/* ── MAIN ── */
-.main{
-  max-width:1320px;margin:0 auto;padding:0 26px 80px;
-  background:linear-gradient(180deg,rgba(30,49,124,.14) 0%,rgba(57,86,180,.10) 22%,rgba(121,149,255,.05) 48%,rgba(8,20,74,0) 100%);
-  border-radius:34px 34px 0 0;
-}
-.stats{
-  display:flex;gap:54px;align-items:flex-end;
-  padding:28px 0;border-bottom:1px solid var(--line);margin-bottom:40px;
-}
-.stat strong{display:block;font-family:"Libre Caslon Display",serif;font-size:42px;font-weight:400;color:#fff}
-.stat span{display:block;margin-top:4px;color:#b7c4ea;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-
-.section{margin-bottom:52px}
-.section-head{
-  display:flex;justify-content:space-between;gap:16px;align-items:center;
-  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:22px;
-}
-.section-title{display:flex;gap:12px;align-items:center}
-.section-title h2{margin:0;font-family:"Libre Caslon Display",serif;font-size:34px;font-weight:400;color:#fff}
-.badge{background:rgba(255,255,255,.08);color:#eed59d;border-radius:999px;padding:7px 11px;font-size:12px}
-
-/* ── SHELF CARDS with image ── */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(220px,1fr));
-  gap:18px;
-}
+/* SHELF CARDS */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:20px}
 .card{
-  border-radius:20px;
-  overflow:hidden;
-  min-height:300px;
-  position:relative;
-  cursor:pointer;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(189,205,255,.12);
-  transition:.25s ease;
-  background:#0a1240;
+  border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:linear-gradient(180deg,#203c82,#162b69);
+  box-shadow:var(--shadow);cursor:pointer;
+  transition:transform .2s ease;min-height:300px;position:relative;
 }
-.card:hover{transform:translateY(-5px);box-shadow:0 26px 50px rgba(0,0,0,.4)}
-.card:hover .card-img{transform:scale(1.05)}
-.card-img{
-  width:100%;height:180px;
-  object-fit:cover;
-  display:block;
-  transition:transform .4s ease;
-  filter:brightness(.82) saturate(.9);
-}
-.card-body{
-  padding:16px 18px 18px;
-  background:linear-gradient(180deg,rgba(8,16,52,.92) 0%,rgba(5,10,38,.98) 100%);
-}
-.card-title{
-  font-family:"Libre Caslon Display",serif;
-  font-size:22px;font-weight:400;line-height:1.15;
-  color:#fff;margin-bottom:6px;
-}
-.card-tagline{
-  font-size:13px;color:#a8b8e8;line-height:1.5;
-}
-.card-foot{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-top:12px;
-}
-.card-count{font-size:11px;color:#6a7aaa}
-.card-arrow{font-size:13px;font-weight:600;color:var(--green)}
+.card:hover{transform:translateY(-5px)}
+.card-img{width:100%;height:176px;object-fit:cover;display:block;border-bottom:1px solid var(--line);filter:brightness(.82) saturate(.9)}
+.card-img-wrap{height:176px;overflow:hidden;position:relative}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.85);transition:transform .35s ease}
+.card:hover .card-img-wrap img{transform:scale(1.05)}
+.cardcopy{padding:18px 20px 36px}
+.card h3{margin:0 0 8px;font-family:Georgia,serif;font-size:24px;font-weight:400}
+.card p{margin:0;color:#d0d9f5;font-size:13px;line-height:1.6}
+.card small{position:absolute;right:18px;bottom:14px;color:#8899cc;font-size:11px}
 
-/* ── WHY PANEL ── */
-.panel{
-  background:linear-gradient(180deg,rgba(22,39,110,.72) 0%,rgba(16,30,88,.74) 100%);
-  border:1px solid rgba(189,205,255,.18);border-radius:24px;
-  box-shadow:var(--shadow);overflow:hidden;
-}
-.panel-body{padding:18px 24px 24px}
-.resource-list{display:flex;flex-direction:column;gap:14px}
-.resource{padding:18px 0;border-top:1px solid rgba(159,180,255,.14)}
-.resource:first-child{border-top:0;padding-top:0}
-.resource .small{color:#f0c76c;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:700}
-.resource h4{margin:7px 0 8px;font-family:"Libre Caslon Display",serif;font-size:28px;font-weight:400;line-height:1.1;color:#fff}
-.resource p{color:#c4cfef;line-height:1.68}
-
-/* ── MODAL ── */
+/* MODAL */
 .modal{
-  position:fixed;inset:0;background:rgba(2,5,28,.65);
-  display:none;align-items:center;justify-content:center;padding:24px;z-index:30;
+  display:none;position:fixed;inset:0;background:rgba(0,3,18,.78);
+  align-items:center;justify-content:center;padding:20px;z-index:50;
   backdrop-filter:blur(4px);
 }
 .modal.open{display:flex}
-.modal-card{
-  width:min(980px,100%);max-height:90vh;overflow:auto;
-  background:linear-gradient(180deg,rgba(9,18,58,.99) 0%,rgba(7,14,45,.99) 100%);
-  border-radius:26px;
-  box-shadow:0 28px 70px rgba(0,0,0,.45);
-  border:1px solid rgba(159,180,255,.18);color:#eef3ff;
+.modalbox{
+  width:min(960px,100%);max-height:90vh;overflow:auto;
+  background:linear-gradient(180deg,#0e1f5e,#091846);
+  border:1px solid var(--line);border-radius:24px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
 }
-/* modal image banner */
-.modal-banner{
-  width:100%;height:220px;object-fit:cover;
-  display:block;border-radius:24px 24px 0 0;
-  filter:brightness(.75) saturate(.85);
+/* modal banner image */
+.modal-banner{width:100%;height:200px;object-fit:cover;display:block;border-radius:24px 24px 0 0;filter:brightness(.72) saturate(.8)}
+.modal-head{padding:20px 26px 8px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.modal-head-text{}
+.modal-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:6px}
+.modal-head h2{font-family:Georgia,serif;font-size:38px;font-weight:400;color:#fff;margin:0 0 6px}
+.modal-tagline{color:#aab8e0;font-size:14px;line-height:1.6;margin-bottom:4px}
+.modalclose{border:0;background:rgba(255,255,255,.1);color:white;width:40px;height:40px;border-radius:50%;font-size:24px;flex-shrink:0}
+.modalclose:hover{background:rgba(255,255,255,.2)}
+
+/* WHY READ — the punchy intro block */
+.modal-why{
+  margin:0 26px 6px;
+  background:rgba(255,200,92,.07);
+  border:1px solid rgba(255,200,92,.18);
+  border-left:4px solid var(--gold);
+  border-radius:0 12px 12px 0;
+  padding:16px 18px;
 }
-.modal-head{padding:22px 28px 10px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-.modal-head h3{margin:8px 0 0;font-family:"Libre Caslon Display",serif;font-size:40px;font-weight:400;line-height:1.03;color:#fff}
-.close{border:0;background:rgba(255,255,255,.08);color:#dbe4ff;width:38px;height:38px;border-radius:50%;font-size:24px;line-height:1}
-.close:hover{background:rgba(255,255,255,.15)}
-.modal-sub{padding:0 28px 6px;color:#8a96c4;line-height:1.7}
-.modal-content{padding:12px 28px 30px}
-.entry{padding:18px 0;border-top:1px solid rgba(159,180,255,.14)}
-.entry:first-child{border-top:0}
-.entry .entry-type{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#f0c76c;font-weight:700}
-.entry h4{margin:7px 0 8px;font-family:"Libre Caslon Display",serif;font-size:28px;font-weight:400;line-height:1.08;color:#fff}
-.entry p{color:#c4cfef;line-height:1.72}
-.entry .prompt{margin-top:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;color:#b8c8e8;font-size:13px}
-.empty{padding:18px 0;color:#b8c4ee}
+.modal-why .why-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:6px}
+.modal-why p{font-size:14px;color:#e8eeff;line-height:1.7;margin:0}
 
-.footer{text-align:center;color:#b8c4ee;font-size:12px;padding:18px 0 6px}
-
-@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(220px,1fr))}}
-@media(max-width:700px){
-  .main{padding:0 16px 60px}.hero{padding:42px 18px 52px}
-  .stats{gap:20px;flex-wrap:wrap}.cards{grid-template-columns:1fr}
-  .section-title h2{font-size:29px}.modal-head h3{font-size:32px}
-  .modal-banner{height:160px}
+/* PRACTICAL TIP */
+.modal-tip{
+  margin:10px 26px 0;
+  background:rgba(118,214,162,.06);
+  border:1px solid rgba(118,214,162,.18);
+  border-left:4px solid var(--green);
+  border-radius:0 12px 12px 0;
+  padding:14px 18px;
 }
+.modal-tip .tip-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--green);font-weight:700;margin-bottom:5px}
+.modal-tip p{font-size:13px;color:#d4f0e4;line-height:1.65;margin:0}
 
+/* INNER ITEM LIST — the Notion-page style entries */
+.modal-list{padding:18px 26px 28px}
+.modal-list-head{
+  font-size:11px;text-transform:uppercase;letter-spacing:.15em;
+  color:#8899cc;font-weight:700;margin-bottom:14px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+.item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:13px 0;border-top:1px solid rgba(190,205,255,.1);
+}
+.item:first-of-type{border-top:0}
+.item-badge{
+  flex-shrink:0;font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:3px 8px;border-radius:4px;margin-top:3px;
+  background:rgba(255,255,255,.08);color:#aabae5;white-space:nowrap;
+}
+.item-badge.bestseller{background:rgba(255,200,92,.15);color:#ffd070}
+.item-badge.recommended{background:rgba(118,214,162,.12);color:#76d6a2}
+.item-badge.essay{background:rgba(125,168,255,.12);color:#7da8ff}
+.item-badge.model{background:rgba(200,150,255,.12);color:#c896ff}
+.item-badge.bias{background:rgba(255,130,100,.12);color:#ff8264}
+.item-badge.hardwire{background:rgba(255,180,80,.12);color:#ffb450}
+.item-badge.type{background:rgba(90,200,180,.12);color:#5ac8b4}
+.item-badge.tip{background:rgba(118,214,162,.12);color:#76d6a2}
+.item-info{}
+.item-title{font-family:Georgia,serif;font-size:17px;font-weight:400;color:#eef3ff;margin-bottom:3px;line-height:1.3}
+.item-author{font-size:11px;color:#8899cc;margin-bottom:3px}
+.item-note{font-size:12px;color:#9eadd4;line-height:1.55}
+
+.footer{text-align:center;color:#aebae1;padding:32px 0 10px;font-size:12px;border-top:1px solid var(--line);margin-top:8px}
+
+@media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.library{padding:38px 16px 55px}.hero{min-height:500px}.sectionhead h2{font-size:30px}.modal-head h2{font-size:30px}.modal-banner{height:140px}}
 </style>
 </head>
 <body>
 
-<!-- DIAGONAL SHOOTING STAR -->
 <div class="shooting-star" aria-hidden="true"></div>
 
 <section class="hero">
+  <div class="shooting-star" aria-hidden="true"></div>
   <div>
     <div class="eyebrow">YES Growth Library</div>
     <h1>The YES Knowledge Library</h1>
@@ -306,65 +206,46 @@ h1{
     <p class="intro">Books, ideas, mental models, emotional intelligence, psychology, fitness, nutrition and serious investing — designed to tempt every intern to search for at least one useful idea.</p>
     <div class="searchbox">
       <span>⌕</span>
-      <input id="searchInput" placeholder="Search topics, ideas, habits, books…">
+      <input id="search" placeholder="Search topics, ideas, habits, books…">
     </div>
   </div>
 </section>
 
-<main class="main">
-  <section class="stats">
-    <div class="stat"><strong id="topicCount">10</strong><span>Shelves</span></div>
-    <div class="stat"><strong id="resourceCount">30</strong><span>Starter resources</span></div>
-    <div class="stat"><strong>YES</strong><span>Intern development</span></div>
-    <div class="stat"><strong>∞</strong><span>Live forever mentality</span></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <div class="section-title"><span>🌿</span><h2>Learning Shelves</h2></div>
-      <span class="badge">Click any shelf to open it</span>
-    </div>
-    <div class="cards" id="cardGrid"></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <div class="section-title"><span>✦</span><h2>Why this library matters</h2></div>
-      <span class="badge">One useful search can change a week</span>
-    </div>
-    <div class="panel">
-      <div class="panel-body resource-list">
-        <div class="resource">
-          <div class="small">Practical Growth</div>
-          <h4>Good information is nice. Good systems change lives.</h4>
-          <p>Young people do not only need motivation. They need language for what they are feeling, models for how to think, and small actions that can survive a tired Tuesday.</p>
-        </div>
-        <div class="resource">
-          <div class="small">Curiosity</div>
-          <h4>Enter curious. Leave slightly wiser.</h4>
-          <p>The goal is simple: interns should enter this library, search one thing, and leave with one useful idea they can apply in real life.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+<main class="library">
+  <div class="summary">
+    <div><b>10</b><small>Learning shelves</small></div>
+    <div><b id="totalItems">0</b><small>Resources</small></div>
+    <div><b>YES</b><small>Intern development</small></div>
+    <div><b>∞</b><small>Learn forever</small></div>
+  </div>
+  <div class="sectionhead"><h2>Learning Shelves</h2><span>Click any shelf to begin</span></div>
+  <div class="grid" id="grid"></div>
+  <div class="footer">Green Beacons × YES · A living library for young professionals</div>
 </main>
 
-</main>
-
-<!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-card">
+  <div class="modalbox" id="modalbox">
     <img class="modal-banner" id="modalBanner" src="" alt="">
     <div class="modal-head">
-      <div>
-        <div class="eyebrow" id="modalType">Shelf</div>
-        <h3 id="modalTitle">Title</h3>
+      <div class="modal-head-text">
+        <div class="modal-eyebrow" id="modalEyebrow"></div>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-tagline" id="modalTagline"></div>
       </div>
-      <button class="close" id="closeModal">×</button>
+      <button class="modalclose" onclick="closeModal()">×</button>
     </div>
-    <div class="modal-sub" id="modalDesc"></div>
-    <div class="modal-content" id="modalContent"></div>
+    <div class="modal-why" id="modalWhy" style="display:none">
+      <div class="why-label">Why study this</div>
+      <p id="modalWhyText"></p>
+    </div>
+    <div class="modal-tip" id="modalTip" style="display:none">
+      <div class="tip-label">Practical tip</div>
+      <p id="modalTipText"></p>
+    </div>
+    <div class="modal-list">
+      <div class="modal-list-head" id="modalListHead"></div>
+      <div id="modalItems"></div>
+    </div>
   </div>
 </div>
 
@@ -373,171 +254,287 @@ const shelves = [
   {
     title:"Books & Audiobooks",
     tagline:"Long-form reading that upgrades how you think.",
-    img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Starter guide",title:"Read to upgrade your operating system",body:"Books compress years of thought into a few hours of attention. A good book lets you borrow someone else's mistakes, discipline, and insight without paying full price yourself.",prompt:"Try this: Keep one physical book visible in the place where you usually scroll."},
-      {type:"Practical tip",title:"Finish fewer books — but finish better ones",body:"You do not need to complete every book you start. You do need to stay long enough with a few strong books for them to shape your thinking.",prompt:"Question: Which book has improved your behaviour, not just your vocabulary?"},
-      {type:"Mindset",title:"Re-reading is not a weakness",body:"When a book still has something to teach you, returning to it is not repetition. It is refinement."}
+    img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=700&q=80&fit=crop",
+    why:"Books are the only technology that lets you borrow someone else's decades of experience in a few hours. One good book changes how you see everything after it.",
+    tip:"Finish fewer books — but re-read the best ones. A book you re-read twice is worth ten books you skimmed once.",
+    listHead:"Books — from bestsellers to most recommended",
+    badge:"bestseller",
+    items:[
+      {badge:"bestseller", title:"Atomic Habits", author:"James Clear", note:"The definitive guide to building good habits and breaking bad ones. Most recommended by coaches, athletes, and founders worldwide."},
+      {badge:"bestseller", title:"Thinking, Fast and Slow", author:"Daniel Kahneman", note:"Nobel Prize-winning psychology of how your brain actually makes decisions. Foundational."},
+      {badge:"bestseller", title:"The Psychology of Money", author:"Morgan Housel", note:"19 short stories on how people think about money — and why behaviour matters more than knowledge."},
+      {badge:"recommended", title:"Man's Search for Meaning", author:"Viktor Frankl", note:"Written in a Nazi concentration camp. The most powerful argument ever made for finding purpose under pressure."},
+      {badge:"recommended", title:"The Almanack of Naval Ravikant", author:"Eric Jorgenson", note:"How to build wealth and find happiness — distilled from Naval's best ideas. Free online."},
+      {badge:"recommended", title:"Deep Work", author:"Cal Newport", note:"The ability to focus without distraction is the superpower of the 21st century. Newport shows you how."},
+      {badge:"recommended", title:"The Obstacle is the Way", author:"Ryan Holiday", note:"Stoic philosophy turned into a practical guide for turning adversity into advantage."},
+      {badge:"bestseller", title:"Rich Dad Poor Dad", author:"Robert Kiyosaki", note:"The book that first taught a generation to think about assets, liabilities, and financial education."},
+      {badge:"recommended", title:"Mindset", author:"Carol Dweck", note:"Fixed vs growth mindset — the research that changed how schools, coaches, and companies think about talent."},
+      {badge:"recommended", title:"The 48 Laws of Power", author:"Robert Greene", note:"How power actually works in the world. Read it to understand it — not necessarily to practise it."},
+      {badge:"bestseller", title:"How to Win Friends and Influence People", author:"Dale Carnegie", note:"Still the best book ever written on human relationships. Published in 1936. Nothing has beaten it."},
+      {badge:"recommended", title:"Sapiens", author:"Yuval Noah Harari", note:"A sweeping history of humankind. Changes how you think about money, culture, religion, and progress."},
     ]
   },
   {
     title:"Articles & Essays",
-    tagline:"Sharp ideas for quick thinking sessions.",
-    img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Starter guide",title:"Use articles as sparks, not furniture",body:"A good article should light a fire in your thinking. The real value comes when you respond: write notes, test an idea, or explain it to someone else."},
-      {type:"Practice",title:"Read one article with a pencil",body:"Even on your phone, you can annotate mentally. Pause when a sentence unsettles you. Ask why."},
-      {type:"Reminder",title:"Quotes are doors",body:"A strong quote is not the destination. It is a doorway into a larger way of seeing."}
+    tagline:"Sharp ideas from the writers worth reading.",
+    img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700&q=80&fit=crop",
+    why:"The best thinking alive today lives in essays and blogs — not textbooks. One article at the right moment can redirect a year.",
+    tip:"Read with a question in mind. Arrive curious about something specific, and use the article to answer it. Passive reading evaporates.",
+    listHead:"Writers & sources worth following",
+    items:[
+      {badge:"essay", title:"Paul Graham", author:"paulgraham.com", note:"Essays on startups, thinking, and how to do great work. 'Do Things That Don't Scale' and 'Keep Your Identity Small' are essential."},
+      {badge:"essay", title:"Morgan Housel", author:"The Collaborative Fund Blog", note:"The best writer on money, psychology, and human behaviour alive today. Every essay is short and dense with insight."},
+      {badge:"essay", title:"James Clear", author:"jamesclear.com", note:"3-2-1 newsletter every Thursday: 3 ideas, 2 quotes, 1 question. One of the most-read newsletters in the world."},
+      {badge:"essay", title:"Shane Parrish", author:"Farnam Street (fs.blog)", note:"Mental models, decision-making, and how to think clearly. His Knowledge Project podcast pairs well with the essays."},
+      {badge:"essay", title:"Tim Urban", author:"Wait But Why", note:"Extraordinarily long, extraordinarily good essays on AI, procrastination, Elon Musk, and how to pick a career. Start with 'Your Life in Weeks'."},
+      {badge:"essay", title:"Kevin Kelly", author:"kk.org", note:"Co-founder of Wired. His '103 Bits of Advice I Wish I Had Known' is required reading for any young professional."},
+      {badge:"essay", title:"Seth Godin", author:"seths.blog", note:"A short post every single day for decades. On marketing, leadership, art, and courage. Search 'the dip' and 'tribes'."},
+      {badge:"essay", title:"Peter Diamandis", author:"diamandis.com", note:"Exponential technology, abundance mindset, and what the next 30 years will look like. Written for builders."},
     ]
   },
   {
     title:"Mental Models",
     tagline:"Frameworks that help you interpret life more clearly.",
-    img:"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"A mental model is a useful lens",body:"Mental models are thinking shortcuts with depth. Inversion, compounding, opportunity cost, feedback loops — these help you see beneath the surface of everyday problems."},
-      {type:"Example",title:"Use inversion",body:"Instead of asking, 'How do I succeed?' ask, 'What would cause this to fail?' Then remove the obvious traps first."},
-      {type:"Practice",title:"Collect models, not slogans",body:"A slogan sounds wise. A model helps you make better choices under pressure."}
+    img:"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=700&q=80&fit=crop",
+    why:"Most people make the same mistake in different clothes. Mental models help you see the pattern underneath — and choose better, faster.",
+    tip:"Pick three models and apply them to every problem for a month. Depth beats breadth. One model used well is worth a hundred collected.",
+    listHead:"Core mental models — from Farnam Street",
+    items:[
+      {badge:"model", title:"First Principles Thinking", author:"General Thinking", note:"Break any problem down to its most basic truths. Then reason up from there. Used by Elon Musk to redesign rockets."},
+      {badge:"model", title:"Inversion", author:"General Thinking", note:"Instead of asking how to succeed, ask what would guarantee failure — then avoid it. Simple and devastatingly effective."},
+      {badge:"model", title:"Second-Order Thinking", author:"General Thinking", note:"Ask 'and then what?' after every decision. First-order: eat junk food, feel good. Second-order: poor energy, poor performance for days."},
+      {badge:"model", title:"The Map is Not the Territory", author:"General Thinking", note:"Your model of reality is not reality. Always ask what you might be missing or oversimplifying."},
+      {badge:"model", title:"Circle of Competence", author:"Charlie Munger / Warren Buffett", note:"Know the edges of what you actually understand. Operate inside them. Expand them slowly and deliberately."},
+      {badge:"model", title:"Probabilistic Thinking", author:"General Thinking", note:"Think in odds, not certainties. 'There's a 70% chance this works' is more honest and more useful than 'this will work.'"},
+      {badge:"model", title:"Occam's Razor", author:"General Thinking", note:"When two explanations fit, the simpler one is usually correct. Complexity is often the enemy of clarity."},
+      {badge:"model", title:"Hanlon's Razor", author:"General Thinking", note:"Never attribute to malice what can be explained by incompetence. Most frustrating behaviour is thoughtlessness, not intent."},
+      {badge:"model", title:"Compounding", author:"Physics / Finance", note:"Small, consistent gains build into enormous advantages over time. Applies to money, skills, relationships, and reputation equally."},
+      {badge:"model", title:"Feedback Loops", author:"Systems Thinking", note:"Actions create results that feed back into the system. Identify whether your current loop is reinforcing or correcting."},
+      {badge:"model", title:"Opportunity Cost", author:"Microeconomics", note:"Every yes is a no to something else. The cost of a decision is not just what you spend — it's what you gave up."},
     ]
   },
   {
     title:"Cognitive Biases",
     tagline:"Because the mind is brilliant — and capable of fooling itself.",
-    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"Bias is not stupidity",body:"Bias simply means your brain uses shortcuts. The problem comes when you mistake a shortcut for the full truth."},
-      {type:"Example",title:"Confirmation bias",body:"When you already believe something, your mind quietly hunts for evidence that agrees. Good thinking requires looking for what could prove you wrong."},
-      {type:"Practice",title:"Ask: what would the opposite argument say?",body:"One honest question can rescue you from a confident mistake."}
+    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop",
+    why:"You will make the same irrational mistake over and over without knowing it — unless you can name what's happening. Naming a bias is the first step to overriding it.",
+    tip:"Pick one bias per week and actively look for it in your own decisions. You will find it. That recognition alone changes behaviour.",
+    listHead:"Key biases — from your personal Notion study",
+    items:[
+      {badge:"bias", title:"Confirmation Bias", author:"Most common", note:"You look for agreement. Your mind hunts for evidence that supports what you already believe — and ignores everything else."},
+      {badge:"bias", title:"Dunning-Kruger Effect", author:"Competence & Confidence", note:"The least skilled are the most confident. You don't know enough to know what you don't know. The danger zone is ignorance that feels like mastery."},
+      {badge:"bias", title:"Anchoring", author:"Decision-making", note:"The first number controls your thinking. A R10,000 'original price' makes R6,000 feel cheap — even if it isn't."},
+      {badge:"bias", title:"Availability Heuristic", author:"Memory & Perception", note:"Easy to recall = seems common. After seeing plane crash news, flying feels dangerous — even though statistically it's safer than driving."},
+      {badge:"bias", title:"Hindsight Bias", author:"Memory", note:"'I knew it all along.' Events always look predictable after they've happened. This stops you from learning the real lesson."},
+      {badge:"bias", title:"Sunk-Cost Fallacy", author:"Decision-making", note:"Past effort is not a good reason to continue. The money, time, or energy already spent is gone regardless of what you decide next."},
+      {badge:"bias", title:"Status Quo Bias", author:"Inertia", note:"You stick with what you have simply because it's familiar — not because it's optimal. Change feels risky even when staying is riskier."},
+      {badge:"bias", title:"Framing Effect", author:"Communication", note:"'90% fat-free' and '10% fat' are identical facts. How something is presented changes how you feel about it — every time."},
+      {badge:"bias", title:"Bandwagon Effect", author:"Social behaviour", note:"If everyone believes it, I will too. Buying a crypto coin because it's trending is this bias in its purest form."},
+      {badge:"bias", title:"Hyperbolic Discounting", author:"Time & Reward", note:"Now beats later. You prefer a small reward today over a larger one next month — even when the math says wait."},
+      {badge:"bias", title:"Endowment Effect", author:"Ownership", note:"Mine is worth more. You value things more simply because you own them. Classic example: overpricing your used phone."},
+      {badge:"bias", title:"Actor-Observer Bias", author:"Social biases", note:"You stumble — life is hard. I stumble — I'm clumsy. You explain your own failures as situational and others' as character flaws."},
     ]
   },
   {
     title:"Hardwires & Character",
-    tagline:"Habits and standards that quietly shape your destiny.",
-    img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"Character is what repeats",body:"Your future is less about your biggest dream than your most regular pattern. Hardwires are repeated behaviours that become part of who you are."},
-      {type:"Practice",title:"Protect the first hour",body:"The opening hour of your day often tells you what kind of day you are building. Set it on purpose."},
-      {type:"Reminder",title:"Small standards compound",body:"Punctuality, follow-through, and careful communication look small until you meet someone who lacks them."}
+    tagline:"The 16 deep patterns that shape who you are — and who you become.",
+    img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80&fit=crop",
+    why:"Character is what repeats. Not your best day — your most regular pattern. The 16 Hardwires are the deep behavioural blueprints most people never examine.",
+    tip:"Score yourself honestly on each. The ones that sting are the ones worth working on first.",
+    listHead:"The 16 Hardwires — A2B Transformative Leadership framework",
+    items:[
+      {badge:"hardwire", title:"ZiZo — Zoom In / Zoom Out", author:"Cognitive style", note:"How you process information — either deep in detail (ZI) or wide in big picture (ZO). The best leaders move fluidly between both."},
+      {badge:"hardwire", title:"Unconducive Parenting (UP)", author:"Roots", note:"How your childhood and upbringing still influence your behaviour today. Not a blame score — a roots score. Acknowledging it is where rewiring begins."},
+      {badge:"hardwire", title:"Abuse (ABU)", author:"Trauma", note:"Emotional or physical trauma from others — bullying, mistreatment, or harm. Affects self-worth, boundaries, and trust in ways you may not recognise."},
+      {badge:"hardwire", title:"Matters of the Mind (MOM)", author:"Mental health", note:"Untreated mental or emotional struggles — stress, anxiety, depression — that influence your thoughts and actions daily."},
+      {badge:"hardwire", title:"Addiction (ADD)", author:"Coping patterns", note:"Habits used to escape pain or boredom — even when they cause harm. Broader than substances: overworking, social media, food patterns."},
+      {badge:"hardwire", title:"Old-Minded (OLM)", author:"Vitality", note:"Feeling old before your time. Exhaustion, burnout, or a negative outlook that drains energy and makes life feel heavier than it is."},
+      {badge:"hardwire", title:"Attitude (ATT)", author:"Openness", note:"Stubbornness, scepticism, or rebelliousness toward authority and other viewpoints. Can be a strength or a blocker — awareness is the key."},
+      {badge:"hardwire", title:"Victim (VIC)", author:"Responsibility", note:"External: circumstances are always to blame. Internal: I am always the problem. Both patterns keep you from taking back your power."},
+      {badge:"hardwire", title:"Ecosystems (ECO)", author:"Environment", note:"Your surroundings — home, work, social — and whether they support or limit your growth. You cannot outgrow a consistently toxic environment."},
+      {badge:"hardwire", title:"Locus of Control (LOC)", author:"Agency", note:"External: outside forces control your life. Internal (ILoc): you create your outcomes through your choices. This is the root wire — almost everything flows from it."},
+      {badge:"hardwire", title:"Low Resources (LOR)", author:"Scarcity", note:"Access to money, support, or opportunity. Scarcity shapes thinking in ways that persist long after the scarcity itself is gone."},
+      {badge:"hardwire", title:"Limited Beliefs (LIB)", author:"Worldview", note:"Mental walls built from tradition, culture, or old thinking that restrict how you handle challenges. Spotting them is the first step to expanding them."},
+      {badge:"hardwire", title:"Vengeance (VEN)", author:"Forgiveness", note:"The inability to let go of anger or resentment. Holding a grudge drains your peace and keeps you emotionally anchored to the past."},
+      {badge:"hardwire", title:"Egotism (EGO)", author:"Self-belief vs superiority", note:"When confidence turns into superiority — manipulation, arrogance, or the constant need for admiration. Often pushes away exactly the respect it craves."},
+      {badge:"hardwire", title:"Wolf in Sheep's Clothing (WIS)", author:"Integrity", note:"Hiding true intentions behind a mask of goodness. Even subtle forms of this erode trust permanently when discovered."},
+      {badge:"hardwire", title:"Heartless (HEA)", author:"Empathy", note:"Emotional numbness or a lack of compassion. At its most extreme, moral blindness. At its mildest, a pattern worth noticing and addressing."},
     ]
   },
   {
     title:"Psychology",
     tagline:"Understand motivation, fear, and the inner weather of being human.",
-    img:"https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"You are not only logical",body:"Much of behaviour comes from emotion, memory, environment, and hidden assumptions. Psychology helps you stop acting surprised by yourself."},
-      {type:"Practice",title:"Name the state",body:"Sometimes the best intervention is simple language: 'I am anxious,' 'I am discouraged,' or 'I am avoiding.' Clarity reduces chaos."},
-      {type:"Reflection",title:"Mood is a lens",body:"A low mood can make the world look smaller than it is. Learn to delay major conclusions when tired, angry, or hurt."}
+    img:"https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=700&q=80&fit=crop",
+    why:"You will never manage others well until you understand yourself. Psychology gives you language for what you are experiencing — and that language alone reduces chaos.",
+    tip:"Name the state before reacting. 'I am anxious' is not a weakness. It is a diagnosis — and a diagnosis is the beginning of a solution.",
+    listHead:"Core concepts for self-understanding",
+    items:[
+      {badge:"type", title:"Emotional Regulation", author:"Core skill", note:"The ability to manage your emotional responses — not suppress them. High performers feel everything; they just choose when and how to act on it."},
+      {badge:"type", title:"Growth vs Fixed Mindset", author:"Carol Dweck", note:"Fixed: talent is innate. Growth: talent is built. The belief you choose determines whether setbacks stop you or teach you."},
+      {badge:"type", title:"Maslow's Hierarchy of Needs", author:"Abraham Maslow", note:"Physiological → Safety → Love → Esteem → Self-actualisation. You cannot focus on purpose when survival is unsettled."},
+      {badge:"type", title:"Cognitive Distortions", author:"Aaron Beck / CBT", note:"Automatic negative thought patterns — catastrophising, all-or-nothing thinking, mind-reading. Identifying them is the first step to interrupting them."},
+      {badge:"type", title:"Attachment Styles", author:"John Bowlby", note:"Secure, anxious, avoidant, disorganised. How you attached to caregivers early in life predicts how you attach in relationships and workplaces today."},
+      {badge:"type", title:"Intrinsic vs Extrinsic Motivation", author:"Self-Determination Theory", note:"Internal drive (meaning, curiosity, growth) is more durable than external reward (money, praise). The best long-term performers are intrinsically motivated."},
+      {badge:"type", title:"The Window of Tolerance", author:"Dan Siegel", note:"The zone of arousal where you can think, learn, and relate. Too little stimulus: shutdown. Too much: overwhelm. Self-regulation keeps you in the window."},
+      {badge:"type", title:"Imposter Syndrome", author:"Clance & Imes", note:"Feeling like a fraud despite evidence of competence. Extremely common among high achievers. Naming it breaks its power significantly."},
     ]
   },
   {
     title:"Fitness",
     tagline:"Training as energy, confidence, and self-respect — not vanity alone.",
-    img:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Why it matters",title:"Fitness changes more than your body",body:"Regular movement improves energy, mood, posture, confidence, stress tolerance, focus, sleep, and self-belief. It helps you become someone who keeps promises to yourself."},
-      {type:"Brain trick",title:"Wear the gym clothes first",body:"Do not wait for motivation to arrive. Reduce the number of decisions between you and the workout."},
-      {type:"Brain trick",title:"Make the start embarrassingly easy",body:"Promise yourself 10 minutes, not a heroic session. Starting is often the real challenge. Once you begin, continuing becomes easier."},
-      {type:"Identity",title:"Become the person who trains",body:"Instead of saying, 'I am trying to exercise,' say, 'I am someone who trains.' Identity gives habits somewhere to live."},
-      {type:"Consistency",title:"Build a fallback workout",body:"Have a tiny version for difficult days: 10 push-ups, a brisk walk, or 15 minutes at the gym. Small consistency beats dramatic inconsistency."}
+    img:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80&fit=crop",
+    why:"Fitness is not about aesthetics. It is about becoming a person who keeps promises to themselves — and the physical improvements follow. Movement reshapes your mood, energy, focus, sleep, and self-belief.",
+    tip:"Make the starting line embarrassingly small. Promise yourself 10 minutes. Starting is the real challenge. Once you begin, continuing becomes easier.",
+    listHead:"Types of training — benefits and starting points",
+    items:[
+      {badge:"type", title:"Weight Training / Strength", author:"Resistance exercise", note:"Builds muscle, raises metabolism, improves posture and bone density. Best for long-term physical independence. Start with bodyweight squats, push-ups, and rows."},
+      {badge:"type", title:"Running", author:"Cardiovascular endurance", note:"Improves heart health, lung capacity, and mental resilience. Famous for the 'runner's high' — a real neurochemical effect. Start with walk-run intervals."},
+      {badge:"type", title:"Yoga", author:"Flexibility & mindfulness", note:"Builds flexibility, balance, and body awareness. Reduces cortisol (stress hormone). One of the best practices for combining physical and mental recovery."},
+      {badge:"type", title:"Swimming", author:"Full-body & low impact", note:"Works every major muscle group with near-zero joint impact. Exceptional for recovery, mental clarity, and cardiovascular health. Often described as meditative."},
+      {badge:"type", title:"Cycling", author:"Cardiovascular & lower body", note:"Low impact on joints, high cardiovascular benefit. Practical as transport and exercise. Indoor cycling (spinning) delivers intensity without weather constraints."},
+      {badge:"type", title:"Sport (team & individual)", author:"Competition & coordination", note:"Football, basketball, tennis, squash — sport combines fitness with strategy, social connection, and competitive motivation. Often the most sustainable form of exercise."},
+      {badge:"type", title:"Aerobics / HIIT", author:"High-intensity intervals", note:"Maximum caloric burn in minimum time. 20-minute HIIT sessions outperform 45-minute moderate cardio for fat loss and cardiovascular improvement."},
+      {badge:"type", title:"Walking", author:"The underrated foundation", note:"30 minutes of brisk walking daily reduces risk of heart disease, depression, and cognitive decline significantly. The most accessible and most overlooked form of exercise."},
+      {badge:"tip", title:"The Fallback Workout", author:"Consistency principle", note:"On difficult days: 10 push-ups, a 20-minute walk, bodyweight squats. The goal is to keep the identity alive — not to perform heroically every session."},
     ]
   },
   {
     title:"Nutrition",
     tagline:"Eat in a way that supports your mind, body, and daily performance.",
-    img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"Food is not only calories",body:"Food affects concentration, mood, recovery, and long-term health. Good nutrition is one of the quietest forms of self-respect."},
-      {type:"Practice",title:"Make good choices visible",body:"If the fruit is hidden and the junk is easy, your environment will vote before your willpower does."},
-      {type:"Reminder",title:"Aim for better, not perfect",body:"You do not need a heroic diet. You need a steady pattern that makes the healthy option normal."}
+    img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&fit=crop",
+    why:"Food affects concentration, mood, energy, recovery, and long-term health. Good nutrition is not a diet. It is one of the quietest forms of consistent self-respect.",
+    tip:"Make the good choice the easy choice. If fruit is visible and junk is hidden, your environment votes before your willpower does. Design for the outcome you want.",
+    listHead:"Core nutrition principles and ideas",
+    items:[
+      {badge:"type", title:"Protein First", author:"Macronutrients", note:"Protein keeps you full longer, preserves muscle during weight loss, and supports repair after training. Aim for eggs, chicken, fish, legumes, or Greek yoghurt at every meal."},
+      {badge:"type", title:"Whole Foods over Processed", author:"Food quality", note:"Minimally processed foods — vegetables, fruit, meat, legumes, whole grains — provide nutrients that ultra-processed foods strip away."},
+      {badge:"type", title:"Hydration", author:"Often overlooked", note:"Even mild dehydration (1-2%) reduces concentration and mood significantly. Drink water before reaching for coffee or food when feeling slow or irritable."},
+      {badge:"type", title:"The 80/20 Rule of Eating", author:"Sustainability", note:"Eat well 80% of the time and don't collapse when the other 20% isn't perfect. Rigidity creates bingeing. Flexibility creates sustainability."},
+      {badge:"type", title:"Sugar and Energy Crashes", author:"Blood glucose", note:"Refined sugar spikes blood glucose then crashes it — leaving you tired, unfocused, and craving more sugar. Pairing sugar with protein or fibre slows this effect."},
+      {badge:"type", title:"Meal Timing", author:"Performance nutrition", note:"Eating a light meal 1-2 hours before training improves performance. Eating a protein-rich meal within 2 hours after training improves recovery."},
+      {badge:"type", title:"Sleep & Nutrition Connection", author:"Recovery", note:"Poor sleep raises hunger hormones (ghrelin) and reduces satiety hormones (leptin). Bad sleep makes eating well harder. They are deeply interconnected."},
+      {badge:"tip", title:"Consistency, Not Perfection", author:"Long-term principle", note:"A sustainable pattern of mostly-good choices beats a perfect week followed by a collapse. Aim to make the healthy option the normal option."},
     ]
   },
   {
     title:"Emotional Intelligence",
-    tagline:"Understand feelings, respond better, relate with maturity.",
-    img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"Feelings are data, not dictators",body:"Emotional intelligence is not suppressing emotion. It is learning to read what you feel without letting every feeling run the whole day."},
-      {type:"Practice",title:"Slow the reaction",body:"A pause protects relationships. When upset, create a small gap before the message, decision, or tone leaves your mouth."},
-      {type:"Reflection",title:"Ask what the other person might be feeling",body:"Empathy is not agreement. It is disciplined imagination."}
+    tagline:"Read feelings, respond better, and relate with genuine maturity.",
+    img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&fit=crop",
+    why:"IQ gets you in the room. EQ determines what happens there. The single most consistent predictor of leadership effectiveness, relationship quality, and life satisfaction.",
+    tip:"Create a pause before every important response. A 3-second gap between feeling and reaction is the foundation of emotional intelligence in practice.",
+    listHead:"Core EQ skills and concepts",
+    items:[
+      {badge:"type", title:"Self-Awareness", author:"EQ Pillar 1", note:"The ability to recognise your own emotions, triggers, and patterns as they are happening — not only in retrospect. Journaling and reflection build this skill."},
+      {badge:"type", title:"Self-Regulation", author:"EQ Pillar 2", note:"Managing your emotional responses rather than suppressing or exploding. The pause between stimulus and response is where self-regulation lives."},
+      {badge:"type", title:"Empathy", author:"EQ Pillar 3", note:"Understanding what another person is feeling — not agreeing with them. Disciplined imagination: 'What must this feel like from their side?'"},
+      {badge:"type", title:"Social Skills", author:"EQ Pillar 4", note:"Building rapport, navigating conflict, influencing without manipulation, and communicating clearly under pressure. These are learnable skills, not personality traits."},
+      {badge:"type", title:"Motivation", author:"EQ Pillar 5", note:"Internal drive that persists through setbacks. High-EQ people are motivated by growth and meaning, not only external reward. They keep going when it's hard."},
+      {badge:"type", title:"Reading the Room", author:"Situational awareness", note:"Sensing the emotional climate of a group before speaking. Knowing when to push, when to hold back, and when to ask a question instead of making a statement."},
+      {badge:"type", title:"Giving and Receiving Feedback", author:"Workplace EQ", note:"High-EQ people give feedback specifically and without blame — and receive it without defensiveness. Both are skills. Neither comes naturally."},
+      {badge:"tip", title:"Name What You Feel", author:"Practical habit", note:"'I am frustrated.' 'I am overwhelmed.' 'I am disappointed.' Precise emotional language reduces the intensity of the feeling and creates space for better choices."},
     ]
   },
   {
     title:"Investing Seriously",
-    tagline:"Build wealth patiently and understand risk before return.",
-    img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80&fit=crop",
-    resources:[
-      {type:"Core concept",title:"Investing is ownership, not entertainment",body:"Serious investing means buying productive assets and giving them time. It is not about constant action. It is about understanding what you own and why."},
-      {type:"Practice",title:"Start with risk before return",body:"Before asking how much you can make, ask how much you can lose, how long you can stay invested, and whether you understand the asset."},
-      {type:"Reminder",title:"Compounding needs patience",body:"The most powerful returns often come from consistency, time, and avoiding foolish mistakes — not from finding the next exciting thing."},
-      {type:"Warning",title:"Avoid scams and borrowed certainty",body:"If someone promises guaranteed high returns, urgency, secrecy, or easy wealth, step back. Good investing can be exciting, but it should still survive careful questions."}
+    tagline:"Build wealth patiently. Understand risk before chasing return.",
+    img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&q=80&fit=crop",
+    why:"Time is the most powerful force in investing — and young people have more of it than anyone. Starting seriously at 22 is worth more than starting brilliantly at 35.",
+    tip:"Before asking what you can make, ask what you can lose. Understanding the downside first is the hallmark of every serious investor.",
+    listHead:"Asset classes and investing principles",
+    items:[
+      {badge:"type", title:"Stocks / Equities", author:"Ownership in companies", note:"Buying shares means owning a small piece of a real business. Long-term equity returns have outperformed every other major asset class over 30+ year periods."},
+      {badge:"type", title:"ETFs (Exchange-Traded Funds)", author:"Diversified ownership", note:"A basket of stocks in a single purchase. ETFs on the JSE or S&P 500 give you broad exposure with low fees. The most recommended starting point for young investors."},
+      {badge:"type", title:"Index Funds", author:"Passive investing", note:"Track an entire market index (e.g. S&P 500). Warren Buffett has repeatedly said most people — including professionals — should simply invest in index funds."},
+      {badge:"type", title:"Crypto / Digital Assets", author:"High risk, high volatility", note:"Bitcoin and Ethereum have produced extraordinary returns and extraordinary losses. Treat as speculation, not core savings. Never invest more than you can afford to lose completely."},
+      {badge:"type", title:"Property / Real Estate", author:"Tangible asset", note:"South Africa's REIT market lets you invest in property without buying a building. Rental income + capital appreciation. Requires more capital than most starting investors have."},
+      {badge:"type", title:"Bonds / Fixed Income", author:"Stability and income", note:"Lending money to governments or corporations in exchange for regular interest. Lower return, lower risk. Useful for stability within a portfolio."},
+      {badge:"type", title:"EasyEquities (SA Platform)", author:"Starting point", note:"South Africa's most accessible investment platform. R1 minimum investment. Access to JSE, S&P 500, and crypto. Widely recommended for YES interns starting their investment journey."},
+      {badge:"tip", title:"Compounding: The Eighth Wonder", author:"Core principle", note:"R200/month invested at 10% annual return from age 22 becomes approximately R1.5 million by age 65. The same amount starting at 35 becomes R350,000. Time is the variable."},
+      {badge:"tip", title:"Avoid Scams and Borrowed Certainty", author:"Protection", note:"Guaranteed high returns, urgency, secrecy, and 'exclusive opportunities' are always red flags. Good investments survive patient questions. Bad ones cannot."},
     ]
   }
 ];
 
-const cardGrid = document.getElementById('cardGrid');
-const searchInput = document.getElementById('searchInput');
+// count total items
+let total = 0;
+shelves.forEach(s => total += s.items.length);
+document.getElementById('totalItems').textContent = total;
+
+const grid = document.getElementById('grid');
 const modal = document.getElementById('modal');
-const closeModalBtn = document.getElementById('closeModal');
-const modalBanner = document.getElementById('modalBanner');
-const modalType = document.getElementById('modalType');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDesc');
-const modalContent = document.getElementById('modalContent');
+const search = document.getElementById('search');
 
-document.getElementById('topicCount').textContent = shelves.length;
-document.getElementById('resourceCount').textContent = shelves.reduce((s,x)=>s+x.resources.length,0);
-
-function renderCards(){
-  const q = searchInput.value.trim().toLowerCase();
-  const filtered = shelves.filter(s=>{
-    const hay=[s.title,s.tagline,...s.resources.map(r=>r.title+' '+r.body)].join(' ').toLowerCase();
+function renderGrid(){
+  const q = search.value.trim().toLowerCase();
+  const filtered = shelves.filter(s => {
+    const hay = [s.title, s.tagline, s.why||'', s.tip||'',
+      ...s.items.map(i => i.title+' '+(i.author||'')+' '+(i.note||''))].join(' ').toLowerCase();
     return hay.includes(q);
   });
-  cardGrid.innerHTML = filtered.length
-    ? filtered.map((s,i)=>`
-      <article class="card" data-index="${shelves.indexOf(s)}">
-        <img class="card-img" src="${s.img}" alt="${s.title}" loading="lazy">
-        <div class="card-body">
-          <div class="card-title">${s.title}</div>
-          <div class="card-tagline">${s.tagline}</div>
-          <div class="card-foot">
-            <span class="card-count">${s.resources.length} resources</span>
-            <span class="card-arrow">Open →</span>
-          </div>
+  grid.innerHTML = filtered.length
+    ? filtered.map(s => `
+      <article class="card" data-key="${s.title}">
+        <div class="card-img-wrap"><img src="${s.img}" alt="${s.title}" loading="lazy"></div>
+        <div class="cardcopy">
+          <h3>${s.title}</h3>
+          <p>${s.tagline}</p>
         </div>
+        <small>${s.items.length} resources</small>
       </article>`).join('')
-    : `<div class="empty">No shelves match that search. Try <em>fitness</em>, <em>bias</em>, or <em>money</em>.</div>`;
+    : '<p style="color:#8899cc;padding:20px 0">No shelves match that search.</p>';
 
-  cardGrid.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('click',()=>openShelf(Number(card.dataset.index)));
+  grid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openShelf(card.dataset.key));
   });
 }
 
-function openShelf(index){
-  const s = shelves[index];
-  modalBanner.src = s.img;
-  modalBanner.alt = s.title;
-  modalType.textContent = s.resources.length + ' resources';
-  modalTitle.textContent = s.title;
-  modalDesc.textContent = s.tagline;
-  modalContent.innerHTML = s.resources.map(r=>`
-    <div class="entry">
-      <div class="entry-type">${r.type}</div>
-      <h4>${r.title}</h4>
-      <p>${r.body}</p>
-      ${r.prompt?`<div class="prompt">${r.prompt}</div>`:''}
+function openShelf(key){
+  const s = shelves.find(x => x.title === key);
+  if(!s) return;
+
+  document.getElementById('modalBanner').src = s.img;
+  document.getElementById('modalBanner').alt = s.title;
+  document.getElementById('modalEyebrow').textContent = s.items.length + ' resources';
+  document.getElementById('modalTitle').textContent = s.title;
+  document.getElementById('modalTagline').textContent = s.tagline;
+
+  const whyEl = document.getElementById('modalWhy');
+  const tipEl = document.getElementById('modalTip');
+  if(s.why){
+    document.getElementById('modalWhyText').textContent = s.why;
+    whyEl.style.display = '';
+  } else { whyEl.style.display = 'none'; }
+  if(s.tip){
+    document.getElementById('modalTipText').textContent = s.tip;
+    tipEl.style.display = '';
+  } else { tipEl.style.display = 'none'; }
+
+  document.getElementById('modalListHead').textContent = s.listHead || '';
+  document.getElementById('modalItems').innerHTML = s.items.map(item => `
+    <div class="item">
+      <span class="item-badge ${item.badge||''}">${(item.badge||'item').toUpperCase()}</span>
+      <div class="item-info">
+        <div class="item-title">${item.title}</div>
+        ${item.author ? `<div class="item-author">${item.author}</div>` : ''}
+        ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+      </div>
     </div>`).join('');
+
   modal.classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalbox').scrollTop = 0;
 }
 
-searchInput.addEventListener('input', renderCards);
-closeModalBtn.addEventListener('click',()=>{modal.classList.remove('open');document.body.style.overflow='';});
-modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('open');document.body.style.overflow='';}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){modal.classList.remove('open');document.body.style.overflow='';}});
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-renderCards();
+search.addEventListener('input', renderGrid);
+modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+renderGrid();
 </script>
 </body>
 </html>
