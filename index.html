@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YES Knowledge Library</title>
+<style>
+:root{
+  --night:#020720;
+  --night2:#071445;
+  --card:#162b69;
+  --card2:#203c82;
+  --text:#f7f8ff;
+  --muted:#bdc8ee;
+  --gold:#ffc85c;
+  --line:rgba(190,205,255,.22);
+  --green:#76d6a2;
+  --shadow:0 18px 40px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 8% 16%,rgba(255,255,255,.28) 0 1px,transparent 2px),
+    radial-gradient(circle at 23% 34%,rgba(255,255,255,.22) 0 1px,transparent 2px),
+    radial-gradient(circle at 42% 12%,rgba(255,255,255,.28) 0 1px,transparent 2px),
+    radial-gradient(circle at 64% 26%,rgba(255,255,255,.22) 0 1px,transparent 2px),
+    radial-gradient(circle at 83% 13%,rgba(255,255,255,.30) 0 1px,transparent 2px),
+    radial-gradient(circle at 94% 38%,rgba(255,255,255,.20) 0 1px,transparent 2px),
+    linear-gradient(180deg,var(--night),var(--night2));
+  background-size:260px 260px,310px 310px,280px 280px,340px 340px,300px 300px,270px 270px,auto;
+  min-height:100vh;
+}
+button,input{font:inherit;cursor:pointer}
+
+/* HERO — exact from attached design */
+.hero{
+  min-height:560px;display:flex;align-items:center;justify-content:center;
+  padding:55px 24px 75px;text-align:center;position:relative;overflow:hidden;
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border:1px solid rgba(162,181,255,.16);border-radius:50%;
+}
+.hero:before{width:330px;height:330px;left:-190px;top:40px}
+.hero:after{width:280px;height:280px;right:-150px;bottom:-25px}
+.eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:14px;font-weight:700;color:#d3dcff}
+h1{
+  margin:28px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(52px,8vw,102px);font-weight:400;line-height:.98;
+  color:#fff;
+}
+.subtitle{
+  margin:0 0 24px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(19px,2.3vw,28px);font-style:italic;color:var(--gold);
+}
+.intro{max-width:860px;margin:0 auto 34px;color:#ccd6f7;font-size:17px;line-height:1.75}
+.searchbox{
+  width:min(820px,94vw);margin:auto;border:1px solid var(--line);
+  background:rgba(8,18,63,.82);border-radius:999px;
+  display:flex;align-items:center;padding:0 22px;
+}
+.searchbox span{font-size:29px;color:#aab8e7}
+.searchbox input{
+  width:100%;border:0;outline:0;background:transparent;color:white;
+  font-size:19px;padding:20px 16px;
+}
+.searchbox input::placeholder{color:#aebbe5}
+
+/* ── SHOOTING STAR ── diagonal, top-left to bottom-right */
+.shooting-star{
+  position:fixed;
+  top:0; left:0;
+  width:180px; height:2px;
+  background:linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(190,214,255,.15) 20%,
+    rgba(255,255,255,.9) 75%,
+    rgba(255,255,255,1) 100%);
+  border-radius:999px;
+  box-shadow:0 0 8px rgba(255,255,255,.5), 0 0 20px rgba(125,168,255,.3);
+  transform-origin: left center;
+  transform: rotate(35deg) translateX(-220px);
+  opacity:0;
+  pointer-events:none;
+  z-index:100;
+  animation: diagStar 14s ease-in-out infinite;
+}
+.shooting-star::after{
+  content:"";
+  position:absolute;
+  right:-4px; top:-4px;
+  width:9px; height:9px;
+  border-radius:50%;
+  background:#ffffff;
+  box-shadow:0 0 10px rgba(255,255,255,.9), 0 0 28px rgba(128,170,255,.6);
+}
+@keyframes diagStar{
+  0%{
+    opacity:0;
+    transform:rotate(35deg) translateX(-220px);
+  }
+  5%{opacity:0}
+  8%{opacity:1}
+  38%{
+    opacity:1;
+    transform:rotate(35deg) translateX(160vw);
+  }
+  42%{opacity:0; transform:rotate(35deg) translateX(175vw)}
+  100%{opacity:0; transform:rotate(35deg) translateX(175vw)}
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:520px;
+  padding:56px 22px 74px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(85,110,255,.18), transparent 30%),
+    radial-gradient(circle at 12% 16%, rgba(255,255,255,.21), transparent 0.6%),
+    radial-gradient(circle at 82% 26%, rgba(255,255,255,.19), transparent 0.7%),
+    radial-gradient(circle at 20% 60%, rgba(255,255,255,.17), transparent 0.7%),
+    radial-gradient(circle at 72% 74%, rgba(255,255,255,.19), transparent 0.8%);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;
+  border:1px solid rgba(180,198,255,.12);border-radius:50%;
+}
+.hero:before{width:260px;height:260px;left:-120px;top:40px}
+.hero:after{width:220px;height:220px;right:-90px;bottom:20px}
+.hero-inner{max-width:980px}
+.eyebrow{color:#c4cdee;text-transform:uppercase;letter-spacing:.24em;font-size:14px;font-weight:700}
+.hero h1{
+  margin:22px 0 12px;
+  font-family:"Libre Caslon Display",serif;
+  font-size:clamp(46px,8vw,86px);
+  font-weight:400;line-height:1.02;letter-spacing:-.04em;color:#fff;
+  text-shadow:0 8px 30px rgba(0,0,0,.28);
+}
+.hero .sub{
+  margin:0 0 18px;
+  font-family:"Libre Baskerville",serif;
+  font-style:italic;font-size:21px;color:var(--gold);
+}
+.hero .desc{
+  max-width:760px;margin:0 auto 28px;
+  color:var(--muted);font-size:15px;line-height:1.75;
+}
+.search-wrap{max-width:720px;margin:0 auto;position:relative}
+.search-wrap svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);opacity:.65}
+.search{
+  width:100%;
+  border:1px solid rgba(165,184,255,.20);
+  background:rgba(8,18,58,.76);
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+  border-radius:999px;
+  padding:20px 24px 20px 62px;
+  font-size:18px;color:#d6defb;outline:none;
+}
+.search::placeholder{color:#b8c4ee}
+
+/* ── MAIN ── */
+.main{
+  max-width:1320px;margin:0 auto;padding:0 26px 80px;
+  background:linear-gradient(180deg,rgba(30,49,124,.14) 0%,rgba(57,86,180,.10) 22%,rgba(121,149,255,.05) 48%,rgba(8,20,74,0) 100%);
+  border-radius:34px 34px 0 0;
+}
+.stats{
+  display:flex;gap:54px;align-items:flex-end;
+  padding:28px 0;border-bottom:1px solid var(--line);margin-bottom:40px;
+}
+.stat strong{display:block;font-family:"Libre Caslon Display",serif;font-size:42px;font-weight:400;color:#fff}
+.stat span{display:block;margin-top:4px;color:#b7c4ea;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+.section{margin-bottom:52px}
+.section-head{
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:22px;
+}
+.section-title{display:flex;gap:12px;align-items:center}
+.section-title h2{margin:0;font-family:"Libre Caslon Display",serif;font-size:34px;font-weight:400;color:#fff}
+.badge{background:rgba(255,255,255,.08);color:#eed59d;border-radius:999px;padding:7px 11px;font-size:12px}
+
+/* ── SHELF CARDS with image ── */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(220px,1fr));
+  gap:18px;
+}
+.card{
+  border-radius:20px;
+  overflow:hidden;
+  min-height:300px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(189,205,255,.12);
+  transition:.25s ease;
+  background:#0a1240;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 26px 50px rgba(0,0,0,.4)}
+.card:hover .card-img{transform:scale(1.05)}
+.card-img{
+  width:100%;height:180px;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+  filter:brightness(.82) saturate(.9);
+}
+.card-body{
+  padding:16px 18px 18px;
+  background:linear-gradient(180deg,rgba(8,16,52,.92) 0%,rgba(5,10,38,.98) 100%);
+}
+.card-title{
+  font-family:"Libre Caslon Display",serif;
+  font-size:22px;font-weight:400;line-height:1.15;
+  color:#fff;margin-bottom:6px;
+}
+.card-tagline{
+  font-size:13px;color:#a8b8e8;line-height:1.5;
+}
+.card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:12px;
+}
+.card-count{font-size:11px;color:#6a7aaa}
+.card-arrow{font-size:13px;font-weight:600;color:var(--green)}
+
+/* ── WHY PANEL ── */
+.panel{
+  background:linear-gradient(180deg,rgba(22,39,110,.72) 0%,rgba(16,30,88,.74) 100%);
+  border:1px solid rgba(189,205,255,.18);border-radius:24px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.panel-body{padding:18px 24px 24px}
+.resource-list{display:flex;flex-direction:column;gap:14px}
+.resource{padding:18px 0;border-top:1px solid rgba(159,180,255,.14)}
+.resource:first-child{border-top:0;padding-top:0}
+.resource .small{color:#f0c76c;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:700}
+.resource h4{margin:7px 0 8px;font-family:"Libre Caslon Display",serif;font-size:28px;font-weight:400;line-height:1.1;color:#fff}
+.resource p{color:#c4cfef;line-height:1.68}
+
+/* ── MODAL ── */
+.modal{
+  position:fixed;inset:0;background:rgba(2,5,28,.65);
+  display:none;align-items:center;justify-content:center;padding:24px;z-index:30;
+  backdrop-filter:blur(4px);
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(980px,100%);max-height:90vh;overflow:auto;
+  background:linear-gradient(180deg,rgba(9,18,58,.99) 0%,rgba(7,14,45,.99) 100%);
+  border-radius:26px;
+  box-shadow:0 28px 70px rgba(0,0,0,.45);
+  border:1px solid rgba(159,180,255,.18);color:#eef3ff;
+}
+/* modal image banner */
+.modal-banner{
+  width:100%;height:220px;object-fit:cover;
+  display:block;border-radius:24px 24px 0 0;
+  filter:brightness(.75) saturate(.85);
+}
+.modal-head{padding:22px 28px 10px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.modal-head h3{margin:8px 0 0;font-family:"Libre Caslon Display",serif;font-size:40px;font-weight:400;line-height:1.03;color:#fff}
+.close{border:0;background:rgba(255,255,255,.08);color:#dbe4ff;width:38px;height:38px;border-radius:50%;font-size:24px;line-height:1}
+.close:hover{background:rgba(255,255,255,.15)}
+.modal-sub{padding:0 28px 6px;color:#8a96c4;line-height:1.7}
+.modal-content{padding:12px 28px 30px}
+.entry{padding:18px 0;border-top:1px solid rgba(159,180,255,.14)}
+.entry:first-child{border-top:0}
+.entry .entry-type{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#f0c76c;font-weight:700}
+.entry h4{margin:7px 0 8px;font-family:"Libre Caslon Display",serif;font-size:28px;font-weight:400;line-height:1.08;color:#fff}
+.entry p{color:#c4cfef;line-height:1.72}
+.entry .prompt{margin-top:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;color:#b8c8e8;font-size:13px}
+.empty{padding:18px 0;color:#b8c4ee}
+
+.footer{text-align:center;color:#b8c4ee;font-size:12px;padding:18px 0 6px}
+
+@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(220px,1fr))}}
+@media(max-width:700px){
+  .main{padding:0 16px 60px}.hero{padding:42px 18px 52px}
+  .stats{gap:20px;flex-wrap:wrap}.cards{grid-template-columns:1fr}
+  .section-title h2{font-size:29px}.modal-head h3{font-size:32px}
+  .modal-banner{height:160px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- DIAGONAL SHOOTING STAR -->
+<div class="shooting-star" aria-hidden="true"></div>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">YES Growth Library</div>
+    <h1>The YES Knowledge Library</h1>
+    <p class="subtitle">Where young minds learn as if they were to live forever</p>
+    <p class="intro">Books, ideas, mental models, emotional intelligence, psychology, fitness, nutrition and serious investing — designed to tempt every intern to search for at least one useful idea.</p>
+    <div class="searchbox">
+      <span>⌕</span>
+      <input id="searchInput" placeholder="Search topics, ideas, habits, books…">
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <section class="stats">
+    <div class="stat"><strong id="topicCount">10</strong><span>Shelves</span></div>
+    <div class="stat"><strong id="resourceCount">30</strong><span>Starter resources</span></div>
+    <div class="stat"><strong>YES</strong><span>Intern development</span></div>
+    <div class="stat"><strong>∞</strong><span>Live forever mentality</span></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title"><span>🌿</span><h2>Learning Shelves</h2></div>
+      <span class="badge">Click any shelf to open it</span>
+    </div>
+    <div class="cards" id="cardGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title"><span>✦</span><h2>Why this library matters</h2></div>
+      <span class="badge">One useful search can change a week</span>
+    </div>
+    <div class="panel">
+      <div class="panel-body resource-list">
+        <div class="resource">
+          <div class="small">Practical Growth</div>
+          <h4>Good information is nice. Good systems change lives.</h4>
+          <p>Young people do not only need motivation. They need language for what they are feeling, models for how to think, and small actions that can survive a tired Tuesday.</p>
+        </div>
+        <div class="resource">
+          <div class="small">Curiosity</div>
+          <h4>Enter curious. Leave slightly wiser.</h4>
+          <p>The goal is simple: interns should enter this library, search one thing, and leave with one useful idea they can apply in real life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <img class="modal-banner" id="modalBanner" src="" alt="">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow" id="modalType">Shelf</div>
+        <h3 id="modalTitle">Title</h3>
+      </div>
+      <button class="close" id="closeModal">×</button>
+    </div>
+    <div class="modal-sub" id="modalDesc"></div>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+const shelves = [
+  {
+    title:"Books & Audiobooks",
+    tagline:"Long-form reading that upgrades how you think.",
+    img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Starter guide",title:"Read to upgrade your operating system",body:"Books compress years of thought into a few hours of attention. A good book lets you borrow someone else's mistakes, discipline, and insight without paying full price yourself.",prompt:"Try this: Keep one physical book visible in the place where you usually scroll."},
+      {type:"Practical tip",title:"Finish fewer books — but finish better ones",body:"You do not need to complete every book you start. You do need to stay long enough with a few strong books for them to shape your thinking.",prompt:"Question: Which book has improved your behaviour, not just your vocabulary?"},
+      {type:"Mindset",title:"Re-reading is not a weakness",body:"When a book still has something to teach you, returning to it is not repetition. It is refinement."}
+    ]
+  },
+  {
+    title:"Articles & Essays",
+    tagline:"Sharp ideas for quick thinking sessions.",
+    img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Starter guide",title:"Use articles as sparks, not furniture",body:"A good article should light a fire in your thinking. The real value comes when you respond: write notes, test an idea, or explain it to someone else."},
+      {type:"Practice",title:"Read one article with a pencil",body:"Even on your phone, you can annotate mentally. Pause when a sentence unsettles you. Ask why."},
+      {type:"Reminder",title:"Quotes are doors",body:"A strong quote is not the destination. It is a doorway into a larger way of seeing."}
+    ]
+  },
+  {
+    title:"Mental Models",
+    tagline:"Frameworks that help you interpret life more clearly.",
+    img:"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"A mental model is a useful lens",body:"Mental models are thinking shortcuts with depth. Inversion, compounding, opportunity cost, feedback loops — these help you see beneath the surface of everyday problems."},
+      {type:"Example",title:"Use inversion",body:"Instead of asking, 'How do I succeed?' ask, 'What would cause this to fail?' Then remove the obvious traps first."},
+      {type:"Practice",title:"Collect models, not slogans",body:"A slogan sounds wise. A model helps you make better choices under pressure."}
+    ]
+  },
+  {
+    title:"Cognitive Biases",
+    tagline:"Because the mind is brilliant — and capable of fooling itself.",
+    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"Bias is not stupidity",body:"Bias simply means your brain uses shortcuts. The problem comes when you mistake a shortcut for the full truth."},
+      {type:"Example",title:"Confirmation bias",body:"When you already believe something, your mind quietly hunts for evidence that agrees. Good thinking requires looking for what could prove you wrong."},
+      {type:"Practice",title:"Ask: what would the opposite argument say?",body:"One honest question can rescue you from a confident mistake."}
+    ]
+  },
+  {
+    title:"Hardwires & Character",
+    tagline:"Habits and standards that quietly shape your destiny.",
+    img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"Character is what repeats",body:"Your future is less about your biggest dream than your most regular pattern. Hardwires are repeated behaviours that become part of who you are."},
+      {type:"Practice",title:"Protect the first hour",body:"The opening hour of your day often tells you what kind of day you are building. Set it on purpose."},
+      {type:"Reminder",title:"Small standards compound",body:"Punctuality, follow-through, and careful communication look small until you meet someone who lacks them."}
+    ]
+  },
+  {
+    title:"Psychology",
+    tagline:"Understand motivation, fear, and the inner weather of being human.",
+    img:"https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"You are not only logical",body:"Much of behaviour comes from emotion, memory, environment, and hidden assumptions. Psychology helps you stop acting surprised by yourself."},
+      {type:"Practice",title:"Name the state",body:"Sometimes the best intervention is simple language: 'I am anxious,' 'I am discouraged,' or 'I am avoiding.' Clarity reduces chaos."},
+      {type:"Reflection",title:"Mood is a lens",body:"A low mood can make the world look smaller than it is. Learn to delay major conclusions when tired, angry, or hurt."}
+    ]
+  },
+  {
+    title:"Fitness",
+    tagline:"Training as energy, confidence, and self-respect — not vanity alone.",
+    img:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Why it matters",title:"Fitness changes more than your body",body:"Regular movement improves energy, mood, posture, confidence, stress tolerance, focus, sleep, and self-belief. It helps you become someone who keeps promises to yourself."},
+      {type:"Brain trick",title:"Wear the gym clothes first",body:"Do not wait for motivation to arrive. Reduce the number of decisions between you and the workout."},
+      {type:"Brain trick",title:"Make the start embarrassingly easy",body:"Promise yourself 10 minutes, not a heroic session. Starting is often the real challenge. Once you begin, continuing becomes easier."},
+      {type:"Identity",title:"Become the person who trains",body:"Instead of saying, 'I am trying to exercise,' say, 'I am someone who trains.' Identity gives habits somewhere to live."},
+      {type:"Consistency",title:"Build a fallback workout",body:"Have a tiny version for difficult days: 10 push-ups, a brisk walk, or 15 minutes at the gym. Small consistency beats dramatic inconsistency."}
+    ]
+  },
+  {
+    title:"Nutrition",
+    tagline:"Eat in a way that supports your mind, body, and daily performance.",
+    img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"Food is not only calories",body:"Food affects concentration, mood, recovery, and long-term health. Good nutrition is one of the quietest forms of self-respect."},
+      {type:"Practice",title:"Make good choices visible",body:"If the fruit is hidden and the junk is easy, your environment will vote before your willpower does."},
+      {type:"Reminder",title:"Aim for better, not perfect",body:"You do not need a heroic diet. You need a steady pattern that makes the healthy option normal."}
+    ]
+  },
+  {
+    title:"Emotional Intelligence",
+    tagline:"Understand feelings, respond better, relate with maturity.",
+    img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"Feelings are data, not dictators",body:"Emotional intelligence is not suppressing emotion. It is learning to read what you feel without letting every feeling run the whole day."},
+      {type:"Practice",title:"Slow the reaction",body:"A pause protects relationships. When upset, create a small gap before the message, decision, or tone leaves your mouth."},
+      {type:"Reflection",title:"Ask what the other person might be feeling",body:"Empathy is not agreement. It is disciplined imagination."}
+    ]
+  },
+  {
+    title:"Investing Seriously",
+    tagline:"Build wealth patiently and understand risk before return.",
+    img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80&fit=crop",
+    resources:[
+      {type:"Core concept",title:"Investing is ownership, not entertainment",body:"Serious investing means buying productive assets and giving them time. It is not about constant action. It is about understanding what you own and why."},
+      {type:"Practice",title:"Start with risk before return",body:"Before asking how much you can make, ask how much you can lose, how long you can stay invested, and whether you understand the asset."},
+      {type:"Reminder",title:"Compounding needs patience",body:"The most powerful returns often come from consistency, time, and avoiding foolish mistakes — not from finding the next exciting thing."},
+      {type:"Warning",title:"Avoid scams and borrowed certainty",body:"If someone promises guaranteed high returns, urgency, secrecy, or easy wealth, step back. Good investing can be exciting, but it should still survive careful questions."}
+    ]
+  }
+];
+
+const cardGrid = document.getElementById('cardGrid');
+const searchInput = document.getElementById('searchInput');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.getElementById('closeModal');
+const modalBanner = document.getElementById('modalBanner');
+const modalType = document.getElementById('modalType');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalContent = document.getElementById('modalContent');
+
+document.getElementById('topicCount').textContent = shelves.length;
+document.getElementById('resourceCount').textContent = shelves.reduce((s,x)=>s+x.resources.length,0);
+
+function renderCards(){
+  const q = searchInput.value.trim().toLowerCase();
+  const filtered = shelves.filter(s=>{
+    const hay=[s.title,s.tagline,...s.resources.map(r=>r.title+' '+r.body)].join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+  cardGrid.innerHTML = filtered.length
+    ? filtered.map((s,i)=>`
+      <article class="card" data-index="${shelves.indexOf(s)}">
+        <img class="card-img" src="${s.img}" alt="${s.title}" loading="lazy">
+        <div class="card-body">
+          <div class="card-title">${s.title}</div>
+          <div class="card-tagline">${s.tagline}</div>
+          <div class="card-foot">
+            <span class="card-count">${s.resources.length} resources</span>
+            <span class="card-arrow">Open →</span>
+          </div>
+        </div>
+      </article>`).join('')
+    : `<div class="empty">No shelves match that search. Try <em>fitness</em>, <em>bias</em>, or <em>money</em>.</div>`;
+
+  cardGrid.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click',()=>openShelf(Number(card.dataset.index)));
+  });
+}
+
+function openShelf(index){
+  const s = shelves[index];
+  modalBanner.src = s.img;
+  modalBanner.alt = s.title;
+  modalType.textContent = s.resources.length + ' resources';
+  modalTitle.textContent = s.title;
+  modalDesc.textContent = s.tagline;
+  modalContent.innerHTML = s.resources.map(r=>`
+    <div class="entry">
+      <div class="entry-type">${r.type}</div>
+      <h4>${r.title}</h4>
+      <p>${r.body}</p>
+      ${r.prompt?`<div class="prompt">${r.prompt}</div>`:''}
+    </div>`).join('');
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+searchInput.addEventListener('input', renderCards);
+closeModalBtn.addEventListener('click',()=>{modal.classList.remove('open');document.body.style.overflow='';});
+modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('open');document.body.style.overflow='';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){modal.classList.remove('open');document.body.style.overflow='';}});
+
+renderCards();
+</script>
+</body>
+</html>
