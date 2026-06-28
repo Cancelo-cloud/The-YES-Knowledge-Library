@@ -186,6 +186,134 @@ h1{
 .item-title{font-family:Georgia,serif;font-size:17px;font-weight:400;color:#eef3ff;margin-bottom:3px;line-height:1.3}
 .item-author{font-size:11px;color:#8899cc;margin-bottom:3px}
 .item-note{font-size:12px;color:#9eadd4;line-height:1.55}
+.item{
+  cursor:pointer;border-radius:12px;padding-left:8px;padding-right:8px;
+  transition:background .18s ease,transform .18s ease;
+}
+.item:hover{
+  background:rgba(255,255,255,.055);
+  transform:translateX(4px);
+}
+.item-open{
+  margin-left:auto;align-self:center;color:#7da8ff;font-size:20px;
+  opacity:.8;padding-left:10px;
+}
+
+/* ITEM DETAIL VIEW — shelf → individual resource */
+.item-detail{display:none;padding:4px 26px 30px}
+.item-detail.open{display:block}
+.modal-list.hidden,.modal-why.hidden,.modal-tip.hidden{display:none!important}
+.detail-back{
+  border:1px solid var(--line);background:rgba(255,255,255,.07);
+  color:#dbe4ff;border-radius:999px;padding:9px 14px;margin:8px 0 22px;
+}
+.detail-back:hover{background:rgba(255,255,255,.13)}
+.detail-badge{
+  display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;padding:5px 9px;border-radius:5px;
+  background:rgba(255,200,92,.14);color:#ffd070;margin-bottom:12px;
+}
+.item-detail h3{
+  font-family:Georgia,serif;font-size:36px;font-weight:400;
+  line-height:1.15;color:#fff;margin:0 0 7px;
+}
+.detail-author{font-size:13px;color:#91a3d2;margin-bottom:22px}
+.detail-intro{
+  font-size:16px;line-height:1.8;color:#dce4fb;margin-bottom:22px;
+}
+.detail-section{
+  border-top:1px solid var(--line);padding:20px 0 0;margin-top:20px;
+}
+.detail-section h4{
+  font-family:Georgia,serif;font-size:23px;font-weight:400;
+  color:#fff;margin:0 0 10px;
+}
+.detail-section p,.detail-section li{
+  color:#b9c6eb;font-size:14px;line-height:1.75;
+}
+.detail-section ul{padding-left:20px;margin:0}
+.detail-quote{
+  margin-top:20px;padding:16px 18px;border-left:4px solid var(--gold);
+  background:rgba(255,200,92,.07);color:#eef3ff;
+  font-family:Georgia,serif;font-style:italic;line-height:1.7;
+}
+.detail-reflection{
+  margin-top:20px;padding:16px 18px;border-left:4px solid var(--green);
+  background:rgba(118,214,162,.06);color:#d9f4e7;line-height:1.7;
+}
+.detail-empty{
+  padding:18px;border:1px dashed rgba(190,205,255,.25);
+  border-radius:14px;color:#a8b6df;line-height:1.7;
+}
+.detail-actions{
+  display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px;
+}
+.detail-edit-btn,.detail-save-btn,.detail-cancel-btn,.detail-reset-btn{
+  border:1px solid var(--line);border-radius:999px;padding:9px 14px;
+  color:#eef3ff;background:rgba(255,255,255,.07);
+}
+.detail-edit-btn:hover,.detail-save-btn:hover,.detail-cancel-btn:hover,.detail-reset-btn:hover{
+  background:rgba(255,255,255,.13);
+}
+.detail-save-btn{background:rgba(118,214,162,.13);color:#9af0bf;border-color:rgba(118,214,162,.25)}
+.detail-reset-btn{color:#ffd070;border-color:rgba(255,200,92,.25)}
+.detail-editor{display:none;margin-top:18px}
+.detail-editor.open{display:block}
+.detail-field{margin-bottom:14px}
+.detail-field label{
+  display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;
+  color:#91a3d2;margin-bottom:6px;font-weight:700;
+}
+.detail-field input,.detail-field textarea{
+  width:100%;border:1px solid var(--line);background:rgba(255,255,255,.055);
+  color:#eef3ff;border-radius:12px;padding:12px;outline:none;line-height:1.6;
+}
+.detail-field textarea{min-height:120px;resize:vertical}
+.detail-field textarea.small{min-height:80px}
+.detail-editor-note{
+  font-size:12px;color:#8fa0cf;line-height:1.6;margin-bottom:14px;
+  padding:11px 13px;border-left:3px solid #7da8ff;background:rgba(125,168,255,.06);
+}
+.add-resource-wrap{
+  padding:0 26px 22px;
+}
+.add-resource-btn{
+  border:1px solid rgba(118,214,162,.28);
+  background:rgba(118,214,162,.10);
+  color:#a6f0c3;
+  border-radius:999px;
+  padding:10px 15px;
+}
+.add-resource-btn:hover{background:rgba(118,214,162,.16)}
+.add-book-form{
+  display:none;
+  margin-top:14px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.045);
+}
+.add-book-form.open{display:block}
+.add-book-form h4{
+  margin:0 0 13px;
+  font-family:Georgia,serif;
+  font-size:24px;
+  font-weight:400;
+  color:#fff;
+}
+.add-book-actions{display:flex;gap:10px;flex-wrap:wrap}
+.add-book-submit,.add-book-cancel{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 14px;
+  color:#eef3ff;
+  background:rgba(255,255,255,.07);
+}
+.add-book-submit{
+  background:rgba(118,214,162,.13);
+  color:#9af0bf;
+  border-color:rgba(118,214,162,.25)
+}
 
 .footer{text-align:center;color:#aebae1;padding:32px 0 10px;font-size:12px;border-top:1px solid var(--line);margin-top:8px}
 
@@ -242,14 +370,64 @@ h1{
       <div class="tip-label">Practical tip</div>
       <p id="modalTipText"></p>
     </div>
-    <div class="modal-list">
+    <div class="add-resource-wrap" id="addBookArea" style="display:none">
+      <button class="add-resource-btn" onclick="toggleAddBookForm()">＋ Add book</button>
+      <div class="add-book-form" id="addBookForm">
+        <h4>Add a new book</h4>
+        <div class="detail-field"><label>Book name</label><input id="newBookTitle" placeholder="e.g. The Almanack of Naval Ravikant"></div>
+        <div class="detail-field"><label>Author</label><input id="newBookAuthor" placeholder="e.g. Eric Jorgenson"></div>
+        <div class="detail-field"><label>Short summary</label><textarea class="small" id="newBookSummary" placeholder="A short explanation of why this book matters..."></textarea></div>
+        <div class="add-book-actions">
+          <button class="add-book-submit" onclick="submitNewBook()">Submit</button>
+          <button class="add-book-cancel" onclick="toggleAddBookForm(false)">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-list" id="modalList">
       <div class="modal-list-head" id="modalListHead"></div>
       <div id="modalItems"></div>
+    </div>
+
+    <div class="item-detail" id="itemDetail">
+      <button class="detail-back" onclick="backToShelf()">← Back to shelf</button>
+      <div id="itemDetailContent"></div>
+      <div class="detail-editor" id="detailEditor">
+        <div class="detail-editor-note">
+          Your edits are saved in this browser and will remain visible inside this Notion embed.
+        </div>
+        <div class="detail-field"><label>Title</label><input id="editTitle"></div>
+        <div class="detail-field"><label>Author / source</label><input id="editAuthor"></div>
+        <div class="detail-field"><label>Short note</label><textarea class="small" id="editNote"></textarea></div>
+        <div class="detail-field"><label>Detailed summary</label><textarea id="editSummary"></textarea></div>
+        <div class="detail-field"><label>Key ideas — one per line</label><textarea id="editKeyIdeas"></textarea></div>
+        <div class="detail-field"><label>How to use this</label><textarea class="small" id="editApplication"></textarea></div>
+        <div class="detail-field"><label>Memorable quote</label><textarea class="small" id="editQuote"></textarea></div>
+        <div class="detail-field"><label>Reflection question</label><textarea class="small" id="editReflection"></textarea></div>
+        <div class="detail-actions">
+          <button class="detail-save-btn" onclick="saveItemEdits()">Save changes</button>
+          <button class="detail-cancel-btn" onclick="cancelItemEdits()">Cancel</button>
+          <button class="detail-reset-btn" onclick="resetItemEdits()">Reset this item</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
+/*
+HOW TO ADD A FULL SUMMARY:
+Inside any item below, add these optional fields:
+
+summary:"A clear 2–4 paragraph overview...",
+keyIdeas:["First idea","Second idea","Third idea"],
+application:"How an intern can use this in ordinary life or work.",
+quote:"A short memorable line.",
+reflection:"A question for the intern to think about."
+
+The item remains visible without these fields, but clicking it will show the
+short note plus a reminder that the full summary can still be added.
+*/
 const shelves = [
   {
     title:"Books & Audiobooks",
@@ -260,7 +438,19 @@ const shelves = [
     listHead:"Books — from bestsellers to most recommended",
     badge:"bestseller",
     items:[
-      {badge:"bestseller", title:"Atomic Habits", author:"James Clear", note:"The definitive guide to building good habits and breaking bad ones. Most recommended by coaches, athletes, and founders worldwide."},
+      {badge:"bestseller", title:"Atomic Habits", author:"James Clear",
+      note:"The definitive guide to building good habits and breaking bad ones. Most recommended by coaches, athletes, and founders worldwide.",
+      summary:"Atomic Habits argues that meaningful change rarely comes from one dramatic decision. It comes from very small actions repeated until they become part of your identity. A habit is not merely something you do; over time, it becomes evidence of the kind of person you believe you are.\n\nClear separates goals from systems. Goals tell you where you want to go, but systems determine whether you move there consistently. The practical task is therefore to redesign the cues, friction, rewards, and environment surrounding a behaviour.",
+      keyIdeas:[
+        "Improve by 1% repeatedly. Small gains become significant when allowed to compound.",
+        "Build identity-based habits: decide who you want to become, then collect evidence through action.",
+        "Make good habits obvious, attractive, easy, and satisfying.",
+        "Make harmful habits invisible, unattractive, difficult, and unsatisfying."
+      ],
+      application:"Choose one behaviour that takes less than two minutes and attach it to something you already do. For example: after placing your phone on charge, read one page; after changing out of work clothes, put on training clothes.",
+      quote:"You do not rise to the level of your goals. You fall to the level of your systems.",
+      reflection:"Which repeated action is currently casting votes for the person you want to become — and which one is casting votes against that identity?"
+    },
       {badge:"bestseller", title:"Thinking, Fast and Slow", author:"Daniel Kahneman", note:"Nobel Prize-winning psychology of how your brain actually makes decisions. Foundational."},
       {badge:"bestseller", title:"The Psychology of Money", author:"Morgan Housel", note:"19 short stories on how people think about money — and why behaviour matters more than knowledge."},
       {badge:"recommended", title:"Man's Search for Meaning", author:"Viktor Frankl", note:"Written in a Nazi concentration camp. The most powerful argument ever made for finding purpose under pressure."},
@@ -300,7 +490,18 @@ const shelves = [
     tip:"Pick three models and apply them to every problem for a month. Depth beats breadth. One model used well is worth a hundred collected.",
     listHead:"Core mental models — from Farnam Street",
     items:[
-      {badge:"model", title:"First Principles Thinking", author:"General Thinking", note:"Break any problem down to its most basic truths. Then reason up from there. Used by Elon Musk to redesign rockets."},
+      {badge:"model", title:"First Principles Thinking", author:"General Thinking",
+      note:"Break any problem down to its most basic truths. Then reason up from there. Used by Elon Musk to redesign rockets.",
+      summary:"First-principles thinking means refusing to inherit an answer simply because it is familiar. Instead of reasoning by analogy — copying what others already do — you reduce the problem to facts that cannot easily be reduced further. From those facts, you build a fresh answer.\n\nThis is useful when an organisation is trapped by phrases such as ‘this is how it has always been done.’ It separates genuine constraints from habits disguised as constraints.",
+      keyIdeas:[
+        "List what you know to be true rather than what people normally assume.",
+        "Separate physical, legal, financial, and social constraints.",
+        "Rebuild the solution from the ground up.",
+        "Test the simplest version before adding complexity."
+      ],
+      application:"Take one frustrating process at work. Write down every assumption inside it. Circle the assumptions that are facts. Challenge the rest.",
+      reflection:"Which limitation in your current work is genuinely real — and which one survives only because nobody has questioned it?"
+    },
       {badge:"model", title:"Inversion", author:"General Thinking", note:"Instead of asking how to succeed, ask what would guarantee failure — then avoid it. Simple and devastatingly effective."},
       {badge:"model", title:"Second-Order Thinking", author:"General Thinking", note:"Ask 'and then what?' after every decision. First-order: eat junk food, feel good. Second-order: poor energy, poor performance for days."},
       {badge:"model", title:"The Map is Not the Territory", author:"General Thinking", note:"Your model of reality is not reality. Always ask what you might be missing or oversimplifying."},
@@ -321,7 +522,18 @@ const shelves = [
     tip:"Pick one bias per week and actively look for it in your own decisions. You will find it. That recognition alone changes behaviour.",
     listHead:"Key biases — from your personal Notion study",
     items:[
-      {badge:"bias", title:"Confirmation Bias", author:"Most common", note:"You look for agreement. Your mind hunts for evidence that supports what you already believe — and ignores everything else."},
+      {badge:"bias", title:"Confirmation Bias", author:"Most common",
+      note:"You look for agreement. Your mind hunts for evidence that supports what you already believe — and ignores everything else.",
+      summary:"Confirmation bias is the mind’s tendency to favour evidence that supports an existing belief while overlooking evidence that threatens it. It affects what we search for, what we remember, who we listen to, and how fairly we interpret disagreement.\n\nThe danger is not merely being wrong. It is becoming more confident while filtering out the very information that could correct you.",
+      keyIdeas:[
+        "People often search for proof instead of searching for truth.",
+        "Ambiguous information is usually interpreted in favour of the existing belief.",
+        "Confidence can increase even when the evidence is weak.",
+        "Deliberately seeking disconfirming evidence improves decisions."
+      ],
+      application:"Before defending a decision, write down the strongest argument against it. Ask a person who disagrees with you to improve that argument.",
+      reflection:"What do you currently believe so strongly that you have stopped searching for evidence against it?"
+    },
       {badge:"bias", title:"Dunning-Kruger Effect", author:"Competence & Confidence", note:"The least skilled are the most confident. You don't know enough to know what you don't know. The danger zone is ignorance that feels like mastery."},
       {badge:"bias", title:"Anchoring", author:"Decision-making", note:"The first number controls your thinking. A R10,000 'original price' makes R6,000 feel cheap — even if it isn't."},
       {badge:"bias", title:"Availability Heuristic", author:"Memory & Perception", note:"Easy to recall = seems common. After seeing plane crash news, flying feels dangerous — even though statistically it's safer than driving."},
@@ -387,7 +599,18 @@ const shelves = [
     tip:"Make the starting line embarrassingly small. Promise yourself 10 minutes. Starting is the real challenge. Once you begin, continuing becomes easier.",
     listHead:"Types of training — benefits and starting points",
     items:[
-      {badge:"type", title:"Weight Training / Strength", author:"Resistance exercise", note:"Builds muscle, raises metabolism, improves posture and bone density. Best for long-term physical independence. Start with bodyweight squats, push-ups, and rows."},
+      {badge:"type", title:"Weight Training / Strength", author:"Resistance exercise",
+      note:"Builds muscle, raises metabolism, improves posture and bone density. Best for long-term physical independence. Start with bodyweight squats, push-ups, and rows.",
+      summary:"Strength training is the practice of making muscles work against resistance. The resistance may come from bodyweight, free weights, machines, or resistance bands. Its value goes far beyond appearance: it supports joints, posture, bone strength, metabolic health, confidence, and independence later in life.\n\nBeginners do not need a complicated programme. A few full-body movement patterns practised consistently are enough to make meaningful progress.",
+      keyIdeas:[
+        "Train the major patterns: squat, hinge, push, pull, carry, and brace.",
+        "Good technique matters more than heavy weight.",
+        "Progress gradually by adding repetitions, control, or resistance.",
+        "Recovery — including sleep and food — is part of training."
+      ],
+      application:"Begin with two or three sessions per week. Use movements such as squats, incline push-ups, rows, lunges, and planks. Stop before form breaks down.",
+      reflection:"What is the smallest strength routine you could perform consistently for the next four weeks?"
+    },
       {badge:"type", title:"Running", author:"Cardiovascular endurance", note:"Improves heart health, lung capacity, and mental resilience. Famous for the 'runner's high' — a real neurochemical effect. Start with walk-run intervals."},
       {badge:"type", title:"Yoga", author:"Flexibility & mindfulness", note:"Builds flexibility, balance, and body awareness. Reduces cortisol (stress hormone). One of the best practices for combining physical and mental recovery."},
       {badge:"type", title:"Swimming", author:"Full-body & low impact", note:"Works every major muscle group with near-zero joint impact. Exceptional for recovery, mental clarity, and cardiovascular health. Often described as meditative."},
@@ -455,6 +678,66 @@ const shelves = [
   }
 ];
 
+const EDIT_STORAGE_KEY = "yesLibraryResourceEditsV1";
+const ADDED_BOOKS_STORAGE_KEY = "yesLibraryAddedBooksV1";
+let activeShelfTitle = null;
+let activeItemIndex = null;
+let lockedScrollY = 0;
+
+function loadAddedBooks(){
+  try{
+    const added = JSON.parse(localStorage.getItem(ADDED_BOOKS_STORAGE_KEY) || "[]");
+    const booksShelf = shelves.find(s => s.title === "Books & Audiobooks");
+    if(booksShelf && Array.isArray(added)){
+      added.forEach(book => booksShelf.items.push(book));
+    }
+  }catch(error){
+    console.warn("Could not load added books.", error);
+  }
+}
+
+function loadSavedEdits(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "{}");
+    shelves.forEach(shelf => {
+      shelf.items.forEach((item,index) => {
+        const key = shelf.title + "::" + index;
+        if(saved[key]) Object.assign(item, saved[key]);
+      });
+    });
+  }catch(error){
+    console.warn("Could not load saved library edits.", error);
+  }
+}
+
+function getSavedEdits(){
+  try{return JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "{}")}
+  catch(error){return {}}
+}
+
+function freezeBackground(){
+  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+  document.body.style.overflow = "hidden";
+}
+
+function unfreezeBackground(){
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  document.body.style.overflow = "";
+  window.scrollTo(0, lockedScrollY);
+}
+
+loadAddedBooks();
+loadSavedEdits();
+
 // count total items
 let total = 0;
 shelves.forEach(s => total += s.items.length);
@@ -510,24 +793,214 @@ function openShelf(key){
   } else { tipEl.style.display = 'none'; }
 
   document.getElementById('modalListHead').textContent = s.listHead || '';
-  document.getElementById('modalItems').innerHTML = s.items.map(item => `
-    <div class="item">
+  const addBookArea = document.getElementById('addBookArea');
+  addBookArea.style.display = s.title === "Books & Audiobooks" ? "" : "none";
+  document.getElementById('addBookForm').classList.remove('open');
+  document.getElementById('modalItems').innerHTML = s.items.map((item,index) => `
+    <div class="item" onclick="openItem('${encodeURIComponent(s.title)}',${index})" role="button" tabindex="0">
       <span class="item-badge ${item.badge||''}">${(item.badge||'item').toUpperCase()}</span>
       <div class="item-info">
         <div class="item-title">${item.title}</div>
         ${item.author ? `<div class="item-author">${item.author}</div>` : ''}
         ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
       </div>
+      <span class="item-open">›</span>
     </div>`).join('');
 
+  document.getElementById('modalList').classList.remove('hidden');
+  document.getElementById('itemDetail').classList.remove('open');
+  document.getElementById('modalWhy').classList.remove('hidden');
+  document.getElementById('modalTip').classList.remove('hidden');
+
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  freezeBackground();
+  document.getElementById('modalbox').scrollTop = 0;
+}
+
+function escapeHTML(value){
+  return String(value || '').replace(/[&<>"']/g, ch => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+  })[ch]);
+}
+
+function paragraphs(value){
+  return escapeHTML(value || '').split(/\n\s*\n/).map(p => `<p>${p}</p>`).join('');
+}
+
+function openItem(encodedShelfTitle,index){
+  const shelfTitle = decodeURIComponent(encodedShelfTitle);
+  const shelf = shelves.find(s => s.title === shelfTitle);
+  if(!shelf || !shelf.items[index]) return;
+
+  activeShelfTitle = shelfTitle;
+  activeItemIndex = index;
+  const item = shelf.items[index];
+  const ideas = Array.isArray(item.keyIdeas) && item.keyIdeas.length
+    ? `<div class="detail-section"><h4>Key ideas</h4><ul>${item.keyIdeas.map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul></div>`
+    : '';
+
+  const summary = item.summary
+    ? `<div class="detail-intro">${paragraphs(item.summary)}</div>`
+    : `<div class="detail-empty"><strong>Detailed summary not added yet.</strong><br>
+       Add a <code>summary</code> field to this item in the JavaScript data. You can also add
+       <code>keyIdeas</code>, <code>application</code>, <code>quote</code>, and <code>reflection</code>.</div>`;
+
+  document.getElementById('itemDetailContent').innerHTML = `
+    <span class="detail-badge">${escapeHTML((item.badge||'resource').toUpperCase())}</span>
+    <h3>${escapeHTML(item.title)}</h3>
+    ${item.author ? `<div class="detail-author">${escapeHTML(item.author)}</div>` : ''}
+    ${summary}
+    ${ideas}
+    ${item.application ? `<div class="detail-section"><h4>How to use this</h4><p>${escapeHTML(item.application)}</p></div>` : ''}
+    ${item.quote ? `<div class="detail-quote">“${escapeHTML(item.quote)}”</div>` : ''}
+    ${item.reflection ? `<div class="detail-reflection"><strong>Reflect:</strong> ${escapeHTML(item.reflection)}</div>` : ''}
+    <div class="detail-actions">
+      <button class="detail-edit-btn" onclick="editCurrentItem()">Edit this resource</button>
+    </div>
+  `;
+
+  document.getElementById('detailEditor').classList.remove('open');
+  document.getElementById('modalList').classList.add('hidden');
+  document.getElementById('modalWhy').classList.add('hidden');
+  document.getElementById('modalTip').classList.add('hidden');
+  document.getElementById('itemDetail').classList.add('open');
+  document.getElementById('modalbox').scrollTop = 0;
+}
+
+function toggleAddBookForm(forceState){
+  const form = document.getElementById('addBookForm');
+  const shouldOpen = typeof forceState === "boolean" ? forceState : !form.classList.contains('open');
+  form.classList.toggle('open', shouldOpen);
+  if(shouldOpen){
+    document.getElementById('newBookTitle').focus();
+  }
+}
+
+function submitNewBook(){
+  const title = document.getElementById('newBookTitle').value.trim();
+  const author = document.getElementById('newBookAuthor').value.trim();
+  const note = document.getElementById('newBookSummary').value.trim();
+
+  if(!title || !author || !note){
+    alert("Please add the book name, author, and short summary.");
+    return;
+  }
+
+  const booksShelf = shelves.find(s => s.title === "Books & Audiobooks");
+  if(!booksShelf) return;
+
+  const book = {
+    badge:"recommended",
+    title,
+    author,
+    note,
+    summary:"",
+    keyIdeas:[],
+    application:"",
+    quote:"",
+    reflection:"",
+    userAdded:true
+  };
+
+  booksShelf.items.push(book);
+
+  let added = [];
+  try{added = JSON.parse(localStorage.getItem(ADDED_BOOKS_STORAGE_KEY) || "[]")}
+  catch(error){added = []}
+  added.push(book);
+  localStorage.setItem(ADDED_BOOKS_STORAGE_KEY, JSON.stringify(added));
+
+  document.getElementById('newBookTitle').value = "";
+  document.getElementById('newBookAuthor').value = "";
+  document.getElementById('newBookSummary').value = "";
+  toggleAddBookForm(false);
+
+  renderGrid();
+  openShelf("Books & Audiobooks");
+}
+
+function getActiveItem(){
+  const shelf = shelves.find(s => s.title === activeShelfTitle);
+  if(!shelf || activeItemIndex === null || !shelf.items[activeItemIndex]) return null;
+  return {shelf,item:shelf.items[activeItemIndex]};
+}
+
+function editCurrentItem(){
+  const active = getActiveItem();
+  if(!active) return;
+  const item = active.item;
+  document.getElementById('editTitle').value = item.title || "";
+  document.getElementById('editAuthor').value = item.author || "";
+  document.getElementById('editNote').value = item.note || "";
+  document.getElementById('editSummary').value = item.summary || "";
+  document.getElementById('editKeyIdeas').value = Array.isArray(item.keyIdeas) ? item.keyIdeas.join("\n") : "";
+  document.getElementById('editApplication').value = item.application || "";
+  document.getElementById('editQuote').value = item.quote || "";
+  document.getElementById('editReflection').value = item.reflection || "";
+  document.getElementById('itemDetailContent').style.display = "none";
+  document.getElementById('detailEditor').classList.add('open');
+  document.getElementById('modalbox').scrollTop = 0;
+}
+
+function cancelItemEdits(){
+  document.getElementById('detailEditor').classList.remove('open');
+  document.getElementById('itemDetailContent').style.display = "";
+}
+
+function saveItemEdits(){
+  const active = getActiveItem();
+  if(!active) return;
+  const item = active.item;
+  item.title = document.getElementById('editTitle').value.trim() || item.title;
+  item.author = document.getElementById('editAuthor').value.trim();
+  item.note = document.getElementById('editNote').value.trim();
+  item.summary = document.getElementById('editSummary').value.trim();
+  item.keyIdeas = document.getElementById('editKeyIdeas').value
+    .split("\n").map(x=>x.trim()).filter(Boolean);
+  item.application = document.getElementById('editApplication').value.trim();
+  item.quote = document.getElementById('editQuote').value.trim();
+  item.reflection = document.getElementById('editReflection').value.trim();
+
+  const saved = getSavedEdits();
+  saved[activeShelfTitle + "::" + activeItemIndex] = {
+    title:item.title,author:item.author,note:item.note,summary:item.summary,
+    keyIdeas:item.keyIdeas,application:item.application,quote:item.quote,
+    reflection:item.reflection
+  };
+  localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(saved));
+
+  cancelItemEdits();
+  renderGrid();
+  openItem(encodeURIComponent(activeShelfTitle), activeItemIndex);
+}
+
+function resetItemEdits(){
+  if(!confirm("Reset your saved edits for this resource?")) return;
+  const saved = getSavedEdits();
+  delete saved[activeShelfTitle + "::" + activeItemIndex];
+  localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(saved));
+  alert("Saved edits were removed. Refresh the page to restore the original resource text.");
+}
+
+function backToShelf(){
+  document.getElementById('detailEditor').classList.remove('open');
+  document.getElementById('itemDetailContent').style.display = "";
+  document.getElementById('itemDetail').classList.remove('open');
+  document.getElementById('modalList').classList.remove('hidden');
+  document.getElementById('modalWhy').classList.remove('hidden');
+  document.getElementById('modalTip').classList.remove('hidden');
   document.getElementById('modalbox').scrollTop = 0;
 }
 
 function closeModal(){
   modal.classList.remove('open');
-  document.body.style.overflow = '';
+  unfreezeBackground();
+  document.getElementById('detailEditor').classList.remove('open');
+  document.getElementById('itemDetailContent').style.display = "";
+  document.getElementById('itemDetail').classList.remove('open');
+  document.getElementById('modalList').classList.remove('hidden');
+  activeShelfTitle = null;
+  activeItemIndex = null;
 }
 
 search.addEventListener('input', renderGrid);
