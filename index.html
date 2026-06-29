@@ -224,6 +224,18 @@ h1{
 .detail-intro{
   font-size:16px;line-height:1.8;color:#dce4fb;margin-bottom:22px;
 }
+.detail-intro .inline-resource-link{
+  display:inline-block;
+  margin-left:6px;
+  color:#ffd070;
+  font-weight:700;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,208,112,.45);
+}
+.detail-intro .inline-resource-link:hover{
+  color:#fff0b8;
+  border-bottom-color:#fff0b8;
+}
 .detail-section{
   border-top:1px solid var(--line);padding:20px 0 0;margin-top:20px;
 }
@@ -772,7 +784,7 @@ For young professionals, the book is accessible because it combines ambition wit
       {
         badge:"essay", title:"James Clear", author:"jamesclear.com",
         note:"Habits, systems, identity, deliberate practice, and making improvement easier to repeat.",
-        summary:"James Clear writes practical essays that convert behavioural science into small actions. These five form a strong introduction to his thinking.",
+        summary:"James Clear writes practical essays that convert behavioural science into small actions. These five form a strong introduction to his thinking.\n\nHe also writes short, punchy newsletters every Thursday — check them out:", inlineLink:{title:"The 3-2-1 Newsletter", url:"https://jamesclear.com/3-2-1"},
         links:[
           {title:"Forget About Setting Goals. Focus on This Instead.", source:"James Clear", url:"https://jamesclear.com/goals-systems"},
           {title:"Motivation: The Scientific Guide on How to Get and Stay Motivated", source:"James Clear", url:"https://jamesclear.com/motivation"},
@@ -1381,7 +1393,7 @@ function openItem(encodedShelfTitle,index){
     : '';
 
   const summary = item.summary
-    ? `<div class="detail-intro">${paragraphs(item.summary)}</div>`
+    ? `<div class="detail-intro">${paragraphs(item.summary)}${item.inlineLink ? `<a class="inline-resource-link" href="${escapeHTML(item.inlineLink.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.inlineLink.title)} ↗</a>` : ""}</div>`
     : `<div class="detail-empty"><strong>Detailed summary not added yet.</strong><br>
        Add a <code>summary</code> field to this item in the JavaScript data. You can also add
        <code>keyIdeas</code>, <code>application</code>, <code>quote</code>, and <code>reflection</code>.</div>`;
