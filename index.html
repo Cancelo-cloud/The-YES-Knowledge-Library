@@ -422,6 +422,50 @@ h1{
 
 @media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.grid{grid-template-columns:1fr}.library{padding:38px 16px 55px}.hero{min-height:500px}.sectionhead h2{font-size:30px}.modal-head h2{font-size:30px}.modal-banner{height:140px}}
+
+.video-box{
+  margin-top:22px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+}
+.video-box iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+}
+.video-placeholder{
+  padding:22px;
+  text-align:center;
+  color:#aebadd;
+  font-size:14px;
+}
+.video-placeholder strong{
+  display:block;
+  color:#f1f5ff;
+  margin-bottom:6px;
+}
+.shelf-closing{
+  margin-top:24px;
+  padding:20px;
+  border:1px solid rgba(255,208,112,.28);
+  border-radius:16px;
+  background:rgba(255,208,112,.07);
+}
+.shelf-closing h3{
+  margin:0 0 10px;
+  font-family:Georgia,serif;
+  font-size:22px;
+}
+.shelf-closing p{
+  margin:0;
+  color:#dce4fb;
+  line-height:1.75;
+  white-space:pre-line;
+}
+
 </style>
 </head>
 <body>
@@ -1318,32 +1362,84 @@ Compassion becomes mature when joined to boundaries and judgement. The goal is n
   },
   {
     title:"Fitness",
-    tagline:"Training as energy, confidence, and self-respect — not vanity alone.",
-    img:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80&fit=crop",
-    why:"Fitness is not about aesthetics. It is about becoming a person who keeps promises to themselves — and the physical improvements follow. Movement reshapes your mood, energy, focus, sleep, and self-belief.",
-    tip:"Make the starting line embarrassingly small. Promise yourself 10 minutes. Starting is the real challenge. Once you begin, continuing becomes easier.",
-    listHead:"Types of training — benefits and starting points",
+    tagline:"Choose movement that strengthens the heart, body and mind",
+    img:"https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
+    why:"You do not need to do every kind of exercise. Choose activities you enjoy and combine heart fitness, strength and mobility across the week. Some movement is always better than none.",
+    tip:"Start at a level your body can handle. Improve gradually instead of trying to prove everything in one session.",
+    listHead:"Ten useful ways to move",
+    closingTitle:"The Risks of Doing No Regular Exercise",
+    closingText:"Physical risks: Doing very little movement for long periods can gradually reduce stamina, muscle strength and mobility. Everyday activities may begin to feel more tiring, and long-term inactivity raises the risk of serious health problems.\n\nMental risks: Too little movement can also affect mood, sleep, concentration and general well-being. Regular activity gives the mind a healthy outlet for stress and helps many people feel more capable and energetic.\n\nYou do not need to become an athlete. You need to give your body regular reasons to remain strong, capable and alive.",
     items:[
-      {badge:"type", title:"Weight Training / Strength", author:"Resistance exercise",
-      note:"Builds muscle, raises metabolism, improves posture and bone density. Best for long-term physical independence. Start with bodyweight squats, push-ups, and rows.",
-      summary:"Strength training is the practice of making muscles work against resistance. The resistance may come from bodyweight, free weights, machines, or resistance bands. Its value goes far beyond appearance: it supports joints, posture, bone strength, metabolic health, confidence, and independence later in life.\n\nBeginners do not need a complicated programme. A few full-body movement patterns practised consistently are enough to make meaningful progress.",
-      keyIdeas:[
-        "Train the major patterns: squat, hinge, push, pull, carry, and brace.",
-        "Good technique matters more than heavy weight.",
-        "Progress gradually by adding repetitions, control, or resistance.",
-        "Recovery — including sleep and food — is part of training."
-      ],
-      application:"Begin with two or three sessions per week. Use movements such as squats, incline push-ups, rows, lunges, and planks. Stop before form breaks down.",
-      reflection:"What is the smallest strength routine you could perform consistently for the next four weeks?"
-    },
-      {badge:"type", title:"Running", author:"Cardiovascular endurance", note:"Improves heart health, lung capacity, and mental resilience. Famous for the 'runner's high' — a real neurochemical effect. Start with walk-run intervals."},
-      {badge:"type", title:"Yoga", author:"Flexibility & mindfulness", note:"Builds flexibility, balance, and body awareness. Reduces cortisol (stress hormone). One of the best practices for combining physical and mental recovery."},
-      {badge:"type", title:"Swimming", author:"Full-body & low impact", note:"Works every major muscle group with near-zero joint impact. Exceptional for recovery, mental clarity, and cardiovascular health. Often described as meditative."},
-      {badge:"type", title:"Cycling", author:"Cardiovascular & lower body", note:"Low impact on joints, high cardiovascular benefit. Practical as transport and exercise. Indoor cycling (spinning) delivers intensity without weather constraints."},
-      {badge:"type", title:"Sport (team & individual)", author:"Competition & coordination", note:"Football, basketball, tennis, squash — sport combines fitness with strategy, social connection, and competitive motivation. Often the most sustainable form of exercise."},
-      {badge:"type", title:"Aerobics / HIIT", author:"High-intensity intervals", note:"Maximum caloric burn in minimum time. 20-minute HIIT sessions outperform 45-minute moderate cardio for fat loss and cardiovascular improvement."},
-      {badge:"type", title:"Walking", author:"The underrated foundation", note:"30 minutes of brisk walking daily reduces risk of heart disease, depression, and cognitive decline significantly. The most accessible and most overlooked form of exercise."},
-      {badge:"tip", title:"The Fallback Workout", author:"Consistency principle", note:"On difficult days: 10 push-ups, a 20-minute walk, bodyweight squats. The goal is to keep the identity alive — not to perform heroically every session."},
+      {
+        badge:"fitness",
+        title:"On Running — Cardio",
+        author:"Heart and lung fitness",
+        summary:"<strong>Target:</strong> One or two runs each week. Beginners can alternate walking and slow jogging for 20–30 minutes.<br><br><strong>Why:</strong> Running trains your heart and lungs to deliver oxygen more efficiently. It can improve stamina, strengthen the legs and help you feel more energetic during everyday activities. Regular movement also supports mood, concentration and sleep.<br><br><strong>Examples:</strong> Easy jogging, steady-distance running, trail running, timed 5 km",
+        videoUrl:"",
+        videoLabel:"Running technique and beginner guidance"
+      },
+      {
+        badge:"fitness",
+        title:"On Weightlifting — Strength Training",
+        author:"Muscle and bone strength",
+        summary:"<strong>Target:</strong> Two sessions each week, with rest between sessions for the same muscles.<br><br><strong>Why:</strong> Strength training teaches your muscles to handle greater resistance. It supports stronger muscles and bones, improves posture and makes everyday tasks — such as lifting, carrying and climbing — easier.<br><br><strong>Examples:</strong> Squats, rows, chest presses, deadlifts with suitable weight",
+        videoUrl:"",
+        videoLabel:"Weightlifting form and safety"
+      },
+      {
+        badge:"fitness",
+        title:"On Swimming",
+        author:"Full-body endurance",
+        summary:"<strong>Target:</strong> One or two sessions each week, or a few sessions each month when pool access is limited.<br><br><strong>Why:</strong> Swimming trains the heart, lungs and many muscles at the same time. The water supports your body, so it places less impact on the joints than many land-based activities while still building endurance.<br><br><strong>Examples:</strong> Freestyle, breaststroke, swimming laps, guided water exercise"
+      },
+      {
+        badge:"fitness",
+        title:"On Sports",
+        author:"Movement, skill and teamwork",
+        summary:"<strong>Target:</strong> One or two sessions each week.<br><br><strong>Why:</strong> Sport combines fitness with coordination, decision-making and social interaction. Team sports can teach communication, discipline and cooperation, while individual sports can develop concentration and personal responsibility.<br><br><strong>Examples:</strong> Soccer, tennis, basketball, netball"
+      },
+      {
+        badge:"fitness",
+        title:"On Aerobics",
+        author:"Continuous movement and stamina",
+        summary:"<strong>Target:</strong> One or two sessions each week for roughly 20–45 minutes.<br><br><strong>Why:</strong> Aerobic exercise keeps your body moving continuously and raises your breathing and heart rate. It improves stamina, coordination and your ability to stay active without becoming tired too quickly.<br><br><strong>Examples:</strong> Dance workouts, step aerobics, skipping, low-impact exercise classes",
+        videoUrl:"",
+        videoLabel:"Beginner aerobics session"
+      },
+      {
+        badge:"fitness",
+        title:"On Cycling",
+        author:"Low-impact heart fitness",
+        summary:"<strong>Target:</strong> One or two rides each week, or use cycling regularly for transport.<br><br><strong>Why:</strong> Cycling strengthens the legs and trains the heart while placing relatively little impact on the joints. It can also make exercise practical by combining movement with travelling to work, school or nearby places.<br><br><strong>Examples:</strong> Road cycling, stationary bike, mountain biking, cycling for transport"
+      },
+      {
+        badge:"fitness",
+        title:"On Hill Sprints — Including Staircase Sprints",
+        author:"Power and short intense effort",
+        summary:"<strong>Target:</strong> One short session a week at most for people who already have a basic level of fitness. Beginners should start with fast uphill walking.<br><br><strong>Why:</strong> Moving quickly uphill makes the heart, lungs and leg muscles work hard in a short period. It can build power and fitness, but it is demanding and needs proper rest, a safe surface and gradual progression.<br><br><strong>Examples:</strong> Short hill runs, fast uphill walking, controlled staircase climbs, brief incline intervals",
+        videoUrl:"",
+        videoLabel:"Hill sprint and staircase safety"
+      },
+      {
+        badge:"fitness",
+        title:"On Long Walks — Including Hiking",
+        author:"Endurance and time outdoors",
+        summary:"<strong>Target:</strong> One long walk each week, or two each month, alongside shorter daily walking.<br><br><strong>Why:</strong> Long walks build endurance without placing extreme stress on the body. They can also clear the mind, reduce long periods of sitting and provide time outdoors, especially when walking in safe natural areas.<br><br><strong>Examples:</strong> Neighbourhood walk, nature trail, hiking, walking to a destination"
+      },
+      {
+        badge:"fitness",
+        title:"On Bodyweight Training",
+        author:"Strength without equipment",
+        summary:"<strong>Target:</strong> Two short sessions each week.<br><br><strong>Why:</strong> Bodyweight exercises use your own body as resistance. They build useful strength, balance and control without requiring a gym or expensive equipment, making them easier to practise almost anywhere.<br><br><strong>Examples:</strong> Push-ups, squats, lunges, planks"
+      },
+      {
+        badge:"fitness",
+        title:"On Mobility & Flexibility",
+        author:"Comfortable, controlled movement",
+        summary:"<strong>Target:</strong> Five to ten minutes several days each week, especially after sitting for long periods or following exercise.<br><br><strong>Why:</strong> Mobility helps your joints move comfortably, while flexibility allows your muscles to lengthen through a wider range. Practising both can improve movement quality, reduce stiffness and help you perform other exercises with better control.<br><br><strong>Examples:</strong> Gentle stretching, yoga, shoulder movements, hip-mobility exercises",
+        videoUrl:"",
+        videoLabel:"Mobility and flexibility routine"
+      }
     ]
   },
   {
@@ -1358,54 +1454,37 @@ Compassion becomes mature when joined to boundaries and judgement. The goal is n
         badge:"nutrition",
         title:"On Water",
         author:"Hydration",
-        note:"Target: About 2–4 litres a day, depending on your body size, heat, exercise and how much you sweat. Do not force large amounts when you are not thirsty.",
-        summary:"Why: Water helps your brain stay alert, carries nutrients around the body, supports digestion, cools you when you are hot and helps your muscles work properly. Even mild dehydration can leave you tired, headachy or less focused.",
-        ideas:["Water","Unsweetened tea","Milk","Water-rich fruit"]
+        summary:"<strong>Target:</strong> About 2–4 litres a day, depending on your body size, heat, exercise and how much you sweat. Do not force large amounts when you are not thirsty.<br><br><strong>Why:</strong> Water helps your brain stay alert, carries nutrients around the body, supports digestion, cools you when you are hot and helps your muscles work properly. Even mild dehydration can leave you tired, headachy or less focused. General hydration needs differ from person to person.<br><br><strong>Examples:</strong> Water, unsweetened tea, milk, water-rich fruit"
       },
       {
         badge:"nutrition",
         title:"On Vegetables & Fruit",
         author:"Plants and fibre",
-        note:"Target: At least 400 grams every day.",
-        summary:"Why: Vegetables and fruit give your body fibre, vitamins and minerals. Fibre supports digestion and helps you feel full, while vitamins and minerals help your immune system, energy use and long-term health.",
-        ideas:["Spinach","Carrots","Apples","Bananas"]
+        summary:"<strong>Target:</strong> At least 400 grams every day.<br><br><strong>Why:</strong> Vegetables and fruit give your body fibre, vitamins and minerals. Fibre supports digestion and helps you feel full, while the vitamins and minerals help your immune system, energy use and long-term health. The 400-gram target is a widely used minimum guideline.<br><br><strong>Examples:</strong> Spinach, carrots, apples, bananas"
       },
       {
         badge:"nutrition",
         title:"On Protein — Building Foods",
         author:"Growth and repair",
-        note:"Target: Include one protein food in each main meal.",
-        summary:"Why: Protein is the material your body uses to build and repair muscles, skin and other tissues. It also supports growth and helps meals keep you satisfied for longer, especially after exercise or physical work.",
-        ideas:["Eggs","Beans","Chicken","Yoghurt"]
+        summary:"<strong>Target:</strong> Include one protein food in each main meal.<br><br><strong>Why:</strong> Protein is the material your body uses to build and repair muscles, skin and other tissues. It also supports growth and helps meals keep you satisfied for longer, especially after exercise or physical work.<br><br><strong>Examples:</strong> Eggs, beans, chicken, yoghurt"
       },
       {
         badge:"nutrition",
         title:"On Energy Foods",
         author:"Fuel for the brain and body",
-        note:"Target: Eat enough to match the amount of thinking, work and exercise you do.",
-        summary:"Why: Energy foods are the body’s main fuel. Your brain needs energy to concentrate, and your muscles need it to move, train and recover. Less-processed choices often provide steadier energy and more fibre.",
-        ideas:["Oats","Rice","Potatoes","Maize meal"]
+        summary:"<strong>Target:</strong> Eat enough to match the amount of thinking, work and exercise you do.<br><br><strong>Why:</strong> Energy foods are the body’s main fuel. Your brain needs energy to concentrate, and your muscles need it to move, train and recover. Less-processed choices often provide steadier energy and more fibre.<br><br><strong>Examples:</strong> Oats, rice, potatoes, maize meal"
       },
       {
         badge:"nutrition",
         title:"On Healthy Fats",
         author:"Brain, cells and hormones",
-        note:"Target: Include small portions regularly.",
-        summary:"Why: Healthy fats support the brain, cells and hormones. They also help the body absorb certain vitamins from food. Small portions are enough because fats contain a lot of energy.",
-        ideas:["Avocado","Peanuts","Seeds","Olive or canola oil"]
+        summary:"<strong>Target:</strong> Include small portions regularly.<br><br><strong>Why:</strong> Healthy fats support the brain, cells and hormones. They also help the body absorb certain vitamins from food. Small portions are enough because fats contain a lot of energy.<br><br><strong>Examples:</strong> Avocado, peanuts, seeds, olive or canola oil"
       },
       {
         badge:"nutrition",
         title:"On Eating Times",
         author:"Clear thinking, movement and sleep",
-        note:"Target: Eat at times that help you think clearly, move comfortably and sleep well.",
-        summary:"Why: Very heavy meals can make some people feel slow or sleepy because the body is busy digesting a large amount of food. Eating a heavy meal too close to bedtime can also cause discomfort and disturb sleep.",
-        ideas:[
-          "Choose a lighter meal before deep work",
-          "Eat the main evening meal earlier when possible",
-          "Avoid lying down immediately after eating",
-          "Eat at fairly consistent times"
-        ]
+        summary:"<strong>Target:</strong> Eat at times that help you think clearly, move comfortably and sleep well.<br><br><strong>Why:</strong> Very heavy meals can make some people feel slow or sleepy because the body is busy digesting a large amount of food. Eating a heavy meal too close to bedtime can also cause discomfort and disturb sleep.<br><br><strong>Examples:</strong> Lighter meal before deep work, main meal earlier in the evening, avoid lying down immediately after eating, eat at fairly consistent times"
       }
     ]
   },
@@ -1578,7 +1657,11 @@ function openShelf(key){
         ${Array.isArray(item.quotes) ? `<div class="quote-count">${item.quotes.length} quote${item.quotes.length === 1 ? "" : "s"}</div>` : ''}
       </div>
       <span class="item-open">›</span>
-    </div>`).join('');
+    </div>`).join('') + (s.closingText ? `
+      <section class="shelf-closing">
+        <h3>${escapeHTML(s.closingTitle || "")}</h3>
+        <p>${escapeHTML(s.closingText)}</p>
+      </section>` : '');
 
   document.getElementById('modalList').classList.remove('hidden');
   document.getElementById('itemDetail').classList.remove('open');
@@ -1590,6 +1673,30 @@ function openShelf(key){
   document.getElementById('modalbox').scrollTop = 0;
 }
 
+function youtubeEmbedUrl(url){
+  if(!url) return "";
+  try{
+    const u = new URL(url);
+    if(u.hostname.includes("youtu.be")){
+      const id = u.pathname.replace("/", "");
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+    if(u.hostname.includes("youtube.com")){
+      if(u.pathname.startsWith("/embed/")) return url;
+      const id = u.searchParams.get("v");
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+  }catch(e){}
+  return "";
+}
+
+function formatResourceSummary(value){
+  const escaped = escapeHTML(value || "");
+  return escaped
+    .replace(/&lt;strong&gt;/g, "<strong>")
+    .replace(/&lt;\/strong&gt;/g, "</strong>")
+    .replace(/&lt;br&gt;/g, "<br>");
+}
 function escapeHTML(value){
   return String(value || '').replace(/[&<>"']/g, ch => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
@@ -1613,7 +1720,7 @@ function openItem(encodedShelfTitle,index){
     : '';
 
   const summary = item.summary
-    ? `<div class="detail-intro">${paragraphs(item.summary)}${item.inlineLink ? `<a class="inline-resource-link" href="${escapeHTML(item.inlineLink.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.inlineLink.title)} ↗</a>` : ""}</div>`
+    ? `<div class="detail-intro">${(item.badge === "nutrition" || item.badge === "fitness") ? formatResourceSummary(item.summary) : paragraphs(item.summary)}${item.inlineLink ? `<a class="inline-resource-link" href="${escapeHTML(item.inlineLink.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.inlineLink.title)} ↗</a>` : ""}</div>`
     : `<div class="detail-empty"><strong>Detailed summary not added yet.</strong><br>
        Add a <code>summary</code> field to this item in the JavaScript data. You can also add
        <code>keyIdeas</code>, <code>application</code>, <code>quote</code>, and <code>reflection</code>.</div>`;
@@ -1623,6 +1730,12 @@ function openItem(encodedShelfTitle,index){
     <h3>${escapeHTML(item.title)}</h3>
     ${(item.author || item.genre) ? `<div class="detail-author">${escapeHTML(item.author || '')}${item.genre ? ` · ${escapeHTML(item.genre)}` : ''}</div>` : ''}
     ${summary}
+    ${item.videoLabel ? `
+      <div class="video-box">
+        ${youtubeEmbedUrl(item.videoUrl)
+          ? `<iframe src="${youtubeEmbedUrl(item.videoUrl)}" title="${escapeHTML(item.videoLabel)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+          : `<div class="video-placeholder"><strong>Video coming soon</strong>${escapeHTML(item.videoLabel)}</div>`}
+      </div>` : ''}
     ${Array.isArray(item.quotes) && item.quotes.length ? `
       <div class="quote-collection">
         ${item.quotes.map(q => `
