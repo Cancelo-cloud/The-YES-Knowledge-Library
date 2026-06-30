@@ -232,6 +232,41 @@ h1{
   text-decoration:none;
   border-bottom:1px solid rgba(255,208,112,.45);
 }
+
+.quote-count{
+  margin-top:9px;
+  color:#ffd070;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+.quote-collection{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
+}
+.quote-entry{
+  padding:18px 19px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  background:rgba(255,255,255,.045);
+}
+.quote-entry blockquote{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:18px;
+  line-height:1.65;
+  color:#f6f8ff;
+}
+.quote-entry cite{
+  display:block;
+  margin-top:10px;
+  color:#9fb0ce;
+  font-size:12px;
+  font-style:normal;
+  font-weight:700;
+}
+
 .detail-intro .inline-resource-link:hover{
   color:#fff0b8;
   border-bottom-color:#fff0b8;
@@ -409,7 +444,7 @@ h1{
 
 <main class="library">
   <div class="summary">
-    <div><b>10</b><small>Learning shelves</small></div>
+    <div><b>11</b><small>Learning shelves</small></div>
     <div><b id="totalItems">0</b><small>Resources</small></div>
     <div><b>YES</b><small>Intern development</small></div>
     <div><b>∞</b><small>Learn forever</small></div>
@@ -842,6 +877,20 @@ For young professionals, the book is accessible because it combines ambition wit
         ]
       },
       {
+        badge:"essay", title:"The Productive Life", author:"Cancelo Alvarez",
+        note:"Economics, productivity, mindful living, independence of thought, philosophy, morals, and culture.",
+        summary:"Guided by the principle “Don’t be lazy in learning — first, how to do well. Next, how to live well,” I’m committed to mastering three essential arts: Economics, Productivity, and Mindful Living. Independence in thought, philosophy, morals, and culture are as important as financial independence.",
+        inlineLink:{title:"View all posts labelled The Best", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+        links:[
+          {title:"Your Job Pays You. Your Career Builds You.", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+          {title:"Fearless Pursuit: The Courage to Rise", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+          {title:"An Op-ed from DUCT", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+          {title:"The Inner Duel", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+          {title:"The Heart’s Path: Choosing Gratitude Over Negativity", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"},
+          {title:"Why We Sabotage Ourselves", source:"The Productive Life", url:"https://www.blogger.com/blog/posts/3409853759422163041?q=label%3A%22The%20Best%22"}
+        ]
+      },
+      {
         badge:"essay", title:"Kevin Kelly", author:"kk.org",
         note:"Advice for creators, young professionals, independent thinkers, and people building for the long term.",
         summary:"Kevin Kelly’s writing is calm, generous, and unusually future-facing. These pieces reward re-reading.",
@@ -875,6 +924,106 @@ For young professionals, the book is accessible because it combines ambition wit
           {title:"The Mass Extinction of Universities", source:"Sam’s Notion notes", url:"https://app.notion.com/p/356644d472d7801e861df02a16ec76dc"},
           {title:"How to Build a Billion-Dollar AI Company", source:"Sam’s Notion notes", url:"https://app.notion.com/p/35c644d472d7805fae21dad664083f26"},
           {title:"The 6 D’s", source:"Peter Diamandis", url:"https://www.diamandis.com/blog/the-6ds"}
+        ]
+      }
+    ]
+  },
+  {
+    title:"Quotes",
+    tagline:"What Smart People Said",
+    img:"https://images.unsplash.com/photo-1455390582262-044cdead277a?w=700&q=80&fit=crop",
+    why:"A strong sentence can compress years of experience into a few words. Quotes are not substitutes for thinking, but they can interrupt lazy thinking and give us language for what we already sense.",
+    tip:"Open one collection, choose one quote, and ask what it demands from your behaviour.",
+    listHead:"Choose a collection",
+    items:[
+      {
+        badge:"quotes",
+        title:"Lucius Annaeus Seneca",
+        author:"Seneca the Younger",
+        note:"Time, adversity, character, discipline and self-command.",
+        quotes:[
+          {text:"Luck is what happens when preparation meets opportunity.", source:"Seneca"},
+          {text:"It is not that we have a short time to live, but that we waste much of it.", source:"Seneca"},
+          {text:"We suffer more often in imagination than in reality.", source:"Seneca"},
+          {text:"No person has the power to have everything they want, but it is in their power not to want what they do not have.", source:"Seneca"},
+          {text:"Difficulties strengthen the mind, as labour does the body.", source:"Seneca"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Orange Book",
+        author:"Thoughts Triggering Thoughts · Twitter",
+        note:"Short observations selected for reflection, discussion and action.",
+        quotes:[
+          {text:"A thought becomes useful when it changes what you notice or what you do.", source:"Orange Book"},
+          {text:"Your environment keeps voting for the person you are becoming.", source:"Orange Book"},
+          {text:"Do not confuse consuming insight with practising wisdom.", source:"Orange Book"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Paul Graham",
+        author:"Work, Ambition and Independent Thought",
+        note:"Ideas about doing great work, building, reading and thinking independently.",
+        quotes:[
+          {text:"The way to do great work is to work on something you care about with people you like.", source:"Paul Graham"},
+          {text:"If you want to make wealth, it will help to understand what it is.", source:"Paul Graham"},
+          {text:"A good way to discover what you should work on is to notice what you cannot stop thinking about.", source:"Paul Graham"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Naval Ravikant",
+        author:"Wealth, Happiness and Clear Thinking",
+        note:"Selected thoughts on leverage, reading, judgement, freedom and peace.",
+        quotes:[
+          {text:"Read what you love until you love to read.", source:"Naval Ravikant"},
+          {text:"Specific knowledge is found by pursuing your genuine curiosity and passion.", source:"Naval Ravikant"},
+          {text:"A calm mind, a fit body, and a house full of love. These things cannot be bought. They must be earned.", source:"Naval Ravikant"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Quotes from Twitter",
+        author:"Short ideas worth keeping",
+        note:"Collected thoughts from writers, builders and independent thinkers online.",
+        quotes:[
+          {text:"A useful idea should survive outside the post where you found it.", source:"Collected from Twitter"},
+          {text:"The best online writing gives you language for something you already sensed.", source:"Collected from Twitter"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Quotes on Philosophy",
+        author:"Life, freedom, virtue and meaning",
+        note:"Ideas that help us examine how we live and what kind of person we are becoming.",
+        quotes:[
+          {text:"No man is free who is not master of himself.", source:"Epictetus"},
+          {text:"The impediment to action advances action. What stands in the way becomes the way.", source:"Marcus Aurelius"},
+          {text:"It is never too late to be wise.", source:"Daniel Defoe"},
+          {text:"There is no charm equal to tenderness of heart.", source:"Jane Austen"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Quotes on Business",
+        author:"Value, customers, leadership and execution",
+        note:"Practical ideas about creating value and building something people willingly pay for.",
+        quotes:[
+          {text:"The purpose of a business is to create and keep a customer.", source:"Peter Drucker"},
+          {text:"Make something people want.", source:"Y Combinator"},
+          {text:"Act well your part; there all the honour lies.", source:"Alexander Pope"}
+        ]
+      },
+      {
+        badge:"quotes",
+        title:"Quotes from Books",
+        author:"Lines carried home from reading",
+        note:"Memorable sentences and passages discovered across fiction, philosophy and nonfiction.",
+        quotes:[
+          {text:"I am no bird; and no net ensnares me.", source:"Jane Eyre · Charlotte Brontë"},
+          {text:"Until I feared I would lose it, I never loved to read. One does not love breathing.", source:"To Kill a Mockingbird · Harper Lee"},
+          {text:"It is our choices that show what we truly are, far more than our abilities.", source:"J. K. Rowling"}
         ]
       }
     ]
@@ -1356,6 +1505,7 @@ function openShelf(key){
         <div class="item-title">${item.title}</div>
         ${(item.author || item.genre) ? `<div class="item-author">${item.author || ''}${item.genre ? ` · ${item.genre}` : ''}</div>` : ''}
         ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+        ${Array.isArray(item.quotes) ? `<div class="quote-count">${item.quotes.length} quote${item.quotes.length === 1 ? "" : "s"}</div>` : ''}
       </div>
       <span class="item-open">›</span>
     </div>`).join('');
@@ -1403,6 +1553,14 @@ function openItem(encodedShelfTitle,index){
     <h3>${escapeHTML(item.title)}</h3>
     ${(item.author || item.genre) ? `<div class="detail-author">${escapeHTML(item.author || '')}${item.genre ? ` · ${escapeHTML(item.genre)}` : ''}</div>` : ''}
     ${summary}
+    ${Array.isArray(item.quotes) && item.quotes.length ? `
+      <div class="quote-collection">
+        ${item.quotes.map(q => `
+          <article class="quote-entry">
+            <blockquote>“${escapeHTML(q.text)}”</blockquote>
+            <cite>— ${escapeHTML(q.source || item.author || item.title)}</cite>
+          </article>`).join("")}
+      </div>` : ''}
     ${ideas}
     ${item.application ? `<div class="detail-section"><h4>How to use this</h4><p>${escapeHTML(item.application)}</p></div>` : ''}
     ${Array.isArray(item.links) && item.links.length ? `
