@@ -1374,8 +1374,8 @@ Compassion becomes mature when joined to boundaries and judgement. The goal is n
         badge:"fitness",
         title:"On Running — Cardio",
         author:"Heart and lung fitness",
-        summary:"<strong>Target:</strong> One or two runs each week. Beginners can alternate walking and slow jogging for 20–30 minutes.<br><br><strong>Why:</strong> Running trains your heart and lungs to deliver oxygen more efficiently. It can improve stamina, strengthen the legs and help you feel more energetic during everyday activities. Regular movement also supports mood, concentration and sleep.<br><br><strong>Examples:</strong> Easy jogging, steady-distance running, trail running, timed 5 km",
-        videoUrl:"",
+        summary:"<strong>Target:</strong> One or two runs each week. Beginners can alternate walking and slow jogging for 20–30 minutes.<br><br><strong>Why:</strong> Running trains your heart and lungs to deliver oxygen more efficiently. It can improve stamina, strengthen the legs and help you feel more energetic during everyday activities. Regular movement also supports mood, concentration and sleep.<br><br><strong>Examples:</strong> Easy jogging, steady-distance running, trail running, timed 5 km<br><br><strong>Tip:</strong> Find your nearest Saturday parkrun if you want community, routine, or a safer group setting.",
+        videoUrl:"https://youtube.com/shorts/fgRFGtkIcjM?si=jNPa9v_kBFb_Ve1p",
         videoLabel:"Running technique and beginner guidance"
       },
       {
@@ -1417,7 +1417,7 @@ Compassion becomes mature when joined to boundaries and judgement. The goal is n
         title:"On Hill Sprints — Including Staircase Sprints",
         author:"Power and short intense effort",
         summary:"<strong>Target:</strong> One short session a week at most for people who already have a basic level of fitness. Beginners should start with fast uphill walking.<br><br><strong>Why:</strong> Moving quickly uphill makes the heart, lungs and leg muscles work hard in a short period. It can build power and fitness, but it is demanding and needs proper rest, a safe surface and gradual progression.<br><br><strong>Examples:</strong> Short hill runs, fast uphill walking, controlled staircase climbs, brief incline intervals",
-        videoUrl:"",
+        videoUrl:"https://youtube.com/shorts/Z_ciNFaNpvs?si=hPCMZPs0Xu3_cPsq",
         videoLabel:"Hill sprint and staircase safety"
       },
       {
@@ -1678,11 +1678,15 @@ function youtubeEmbedUrl(url){
   try{
     const u = new URL(url);
     if(u.hostname.includes("youtu.be")){
-      const id = u.pathname.replace("/", "");
+      const id = u.pathname.replace("/", "").split("/")[0];
       return id ? `https://www.youtube.com/embed/${id}` : "";
     }
     if(u.hostname.includes("youtube.com")){
       if(u.pathname.startsWith("/embed/")) return url;
+      if(u.pathname.startsWith("/shorts/")){
+        const id = u.pathname.split("/shorts/")[1].split("/")[0];
+        return id ? `https://www.youtube.com/embed/${id}` : "";
+      }
       const id = u.searchParams.get("v");
       return id ? `https://www.youtube.com/embed/${id}` : "";
     }
